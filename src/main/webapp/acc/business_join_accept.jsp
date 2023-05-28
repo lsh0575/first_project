@@ -32,6 +32,7 @@
 				</div>
 				<script>
 					$("#document").ready(function(){
+						//빈칸체크
 						$("#accept").on("click",function(){
 							if ($("#check1").is(":checked")==false){
 								alert('개인정보 이용 약관에 동의해주세요!');
@@ -44,8 +45,7 @@
 								return false;
 							}
 						});						
-					});
-					$("#document").ready(function(){
+						//전체선택
 						$("#all_check").on("click",function(){
 							if ($("#all_check").is(":checked")==true){
 								$(":checkbox[name=agree]").prop("checked",true);

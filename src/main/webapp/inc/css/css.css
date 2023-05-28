@@ -11,6 +11,9 @@
   .container-fluid {
     padding: 60px 50px;
   }
+ .leftline{
+	border-left: 1px solid #bbb;
+  }
  
   .bg-grey {
     background-color: #f6f6f6;
@@ -137,6 +140,15 @@
   
   .body-top{
   margin-top:170px;
+  }
+
+  .thrdp_hidden{
+  width:0px;
+  height:0px;
+  left:-999%;
+  position:absolute;
+  overflow:hidden;
+  font-size:0;
   }
   
   @keyframes slide {

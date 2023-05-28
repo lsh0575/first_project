@@ -27,7 +27,7 @@ name varchar(40) not null, -- 이름
 birth date not null, -- 생년월일
 email varchar(100) not null, -- 이메일
 phonenum varchar(13) not null, -- 휴대전화번호
-postnum int not null, -- 우편번호
+postnum char(5) not null, -- 우편번호
 address varchar(255) not null, -- 도로명 기본주소
 detail_address varchar(255) not null, -- 상세주소
 role_id int not null, -- 유저역할분류
@@ -49,7 +49,8 @@ company_num varchar(10) not null
 
 create table out_user(
 id varchar(40) not null primary key,
-foreign key(id) references thrdp_account(id),
+foreign key(id) references thrdp_account(id)
+On delete cascade on update cascade,
 out_reason varchar(255),
 out_date datetime not null default(current_timestamp) );
 
@@ -58,6 +59,6 @@ insert into thrdp_account
 Phonenum,postnum,address,detail_address,role_id,status_id,
 create_ip)
 values ('admin', 'admin', '관리자', '1996-09-03', 'admin@admin.com',
-'010-8565-0866', 12345,'기본도로명주소','1703호',1,0,
+'010-8565-0866', '12345','기본도로명주소','1703호',1,0,
 '192.168.0.1');
 

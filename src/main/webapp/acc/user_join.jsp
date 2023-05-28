@@ -10,18 +10,18 @@
 				<legend class="text-center">일반사용자 회원가입</legend>
 				<p>*표시는 필수 입력사항입니다.</p>
 				<div class="form-group">
-					<label for="id_form_input">아이디 입력(*)</label><span id="id_is_dupl"></span>
+					<label for="id_form_input">아이디 입력(*) </label><span id="id_is_dupl"></span>
 					<input type="text" class="form-control" id="id_form_input" name="id" placeholder="사용할 아이디를 입력해주세요"/>
 				</div>
 				
 				<div class="form-group">
 					<label for="pass_form_input">비밀번호 입력(*)</label>
-					<input type="password" class="form-control" id="pass_form_input" name="pass" placeholder="비밀번호를 입력해주세요"/>
+					<input type="password" class="pass_form form-control" id="pass_form_input" name="pass" placeholder="비밀번호를 입력해주세요"/>
 				</div>
 				
 				<div class="form-group">
-					<label for="pass_re">비밀번호 재입력(*)</label>
-					<input type="password" class="form-control" id="pass_re" name="pass_re" placeholder="다시 한번 비밀번호를 입력해주세요"/>
+					<label for="pass_re">비밀번호 재입력(*) </label><span id="pass_confirm"></span>
+					<input type="password" class="pass_form form-control" id="pass_re" name="pass_re" placeholder="다시 한번 비밀번호를 입력해주세요"/>
 				</div>
 				<div class="form-group">
 					<label for="name_form_input">이름 입력(*)</label>
@@ -29,7 +29,7 @@
 				</div>
 				<div class="form-group">
 					<label for="birth_form_input">생년월일 입력(*)</label>
-					<input type="date" class="form-control" id="birth_form_input" name="birth" placeholder="생년월일을 입력해주세요"/>
+					<input type="date" class="form-control" id="birth_form_input" name="birth" />
 				</div>
 				<div class="form-group">
 					<label for="email_form_input">이메일 입력(*)</label>
@@ -61,6 +61,7 @@
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<script>
 		$("#document").ready(function(){
+			//우편번호 입력
 			$("#postnum_form_input").on("click",function(){
 				new daum.Postcode({
 			        oncomplete: function(data) {
@@ -73,12 +74,13 @@
 			$("#basic_addr_form_input").on("click",function(){
 				$("#postnum_form_input").click();
 			});
+			//// 아이디 입력 중복 확인
 			$("#id_form_input").on("blur",function(){
 				if ($("#id_form_input").val().trim()!=""){
 					$.ajax({
 						url:"${pageContext.request.contextPath}/id_dupl.acc",
 						type:"get",
-						dataType:"html",
+						dataType:"text",
 						data:{"id":$('#id_form_input').val()},
 						success:function(data){
 							$("#id_is_dupl").html(data);
@@ -89,40 +91,65 @@
 					});
 				}
 			});
+			
+			////비밀번호 입력 확인
+			$(".pass_form").on("blur",function(){
+				if ($("#pass_re").val().trim()!=""){
+					$.ajax({
+						url:"${pageContext.request.contextPath}/pass_confirm.acc",
+						type:"get",
+						dataType:"html",
+						data:{"pass":$('#pass_form_input').val(),
+								"pass_re":$('#pass_re').val()},
+						success:function(data){
+							$("#pass_confirm").html(data);
+						},
+						error:function(xhr,textStatus,errorThrown){
+							$("#id_is_dupl").html(xhr.status + "-"+textStatus+":"+errorThrown);
+						}
+					})
+				}
+			});
+			
+			////빈칸 체크
 			$("#form").on("submit",function(){
-				if ($("#id_form_input").val().trim()==""){
+				if ($("#id_form_input").val().trim()==""){ //아이디 빈칸 체크
 					alert('아이디를 입력해주세요.');
 					$("#id_form_input").focus();
 					return false;
-				} else if ($("#pass_form_input").val().trim()==""){
+				}else if ($("#id_check").data("check") != 'checked'){ //아이디 중복체크
+					alert ('아이디가 중복되어있습니다.');
+					$("#id_form_input").focus();
+					return false;
+				} else if ($("#pass_form_input").val().trim()==""){ //비밀번호 빈칸 체크
 					alert('비밀번호를 입력해주세요.');
 					$("#pass_form_input").focus();
 					return false;
-				} else if ($("#pass_form_input").val()!=$("#pass_re").val()){
-					alert('비밀번호와 비밀번호 재입력이 일치하지 않습니다.');
+				}else if ($("#pass_check").data("check") != 'checked'){ //비밀번호 확인
+					alert ('비밀번호가 일치하지 않습니다.');
 					$("#pass_form_input").focus();
 					return false;
-				} else if ($("#name_form_input").val().trim()==""){
+				} else if ($("#name_form_input").val().trim()==""){//이름 빈칸 체크
 					alert('이름을 입력해주세요.');
 					$("#name_form_input").focus();
 					return false;
-				} else if ($("#birth_form_input").val()==""){
+				} else if ($("#birth_form_input").val()==""){ //생일 빈칸 체크
 					alert('생일을 입력해주세요.');
 					$("#birth_form_input").focus();
 					return false;
-				}else if ($("#email_form_input").val()==""){
+				}else if ($("#email_form_input").val()==""){ //이메일 빈칸 체크
 					alert('이메일을 입력해주세요.');
 					$("#email_form_input").focus();
 					return false;
-				}else if ($("#phone_form_input").val()==""){
+				}else if ($("#phone_form_input").val()==""){ //휴대전화 빈칸 체크
 					alert('휴대전화번호를 입력해주세요.');
 					$("#phone_form_input").focus();
 					return false;
-				}else if ($("#postnum_form_input").val()==""){
+				}else if ($("#postnum_form_input").val()==""){ //우편번호 빈칸 체크
 					alert('우편번호를 입력해주세요.');
 					$("#postnum_form_input").focus();
 					return false;
-				}else if ($("#addr_form_input").val()==""){
+				}else if ($("#addr_form_input").val()==""){ //상세주소 빈칸 체크
 					alert('상세주소를 입력해주세요.');
 					$("#addr_form_input").focus();
 					return false;

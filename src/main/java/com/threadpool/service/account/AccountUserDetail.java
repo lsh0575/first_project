@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.threadpool.dao.AccountDao;
-import com.threadpool.dto.AccountBusinessDto;
 import com.threadpool.dto.AccountDto;
 
 public class AccountUserDetail implements AccountAction{
@@ -17,9 +16,5 @@ public class AccountUserDetail implements AccountAction{
 		account.setId(request.getParameter("id"));
 		AccountDao dao = new AccountDao();
 		request.setAttribute("account_detail", dao.detail(account));
-		if ( ((AccountDto)request.getAttribute("account_detail")).getRole_id()>1){
-			AccountBusinessDto businessDetail = dao.businessDetail(account);
-			request.setAttribute("business_detail",businessDetail);
-		}
 	}
 }

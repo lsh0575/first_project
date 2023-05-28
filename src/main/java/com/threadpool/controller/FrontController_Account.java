@@ -58,11 +58,14 @@ public class FrontController_Account extends HttpServlet {
 			//사업자 회원가입 정보 기입창
 			//내부에서 location.href 찍어줌.
 			request.getRequestDispatcher("/acc/business_join.jsp").forward(request,response);	
+		}else if (path.equals("/id_dupl.acc")) {
+			//아이디 중복체크 ajax
+			accAction = new AccountDuplCheck(); accAction.exec(request, response);
+		} else if (path.equals("/pass_confirm.acc")) {
+			//비밀번호 확인 ajax
+			accAction = new AccountConfirmPass(); accAction.exec(request, response);
 		} else if (path.equals("/user.acc")) {
 			//마이페이지
-			if (request.getParameter("id") == null) {
-				
-			}
 			accAction = new AccountUserDetail(); accAction.exec(request, response);
 			request.getRequestDispatcher("/acc/mypage.jsp").forward(request, response);
 		} else if (path.equals("/user_list.acc")){
@@ -77,9 +80,45 @@ public class FrontController_Account extends HttpServlet {
 			//유저 데이터 수정.	
 			//내부에서 location.href 찍어줌.
 			accAction = new AccountUserEdit(); accAction.exec(request, response);
-		} else if (path.equals("/id_dupl.acc")) {
-			//아이디 중복체크 ajax
-			accAction = new AccountDuplCheck(); accAction.exec(request, response);
+		}else if(path.equals("/user_pass_edit.acc")) {
+			//비밀번호 수정 폼
+			request.getRequestDispatcher("/acc/user_pass_edit.jsp").forward(request, response);
+		}else if (path.equals("/user_pass_edit_act.acc")) {
+			//비밀번호 수정.
+			//내부에서 location.href 찍어줌.
+			accAction = new AccountPassEdit(); accAction.exec(request, response);
+		} else if (path.equals("/user_out.acc")) {
+			//회원탈퇴 폼
+			//자신의 계정이 아니라면 돌아가게.
+			//내부에서 링크 보내줌.
+			accAction = new AccountOutAccountCheck(); accAction.exec(request, response);
+		} else if (path.equals("/user_out_act.acc")) {
+			//회원탈퇴
+			//내부에서 링크 보내줌.
+			accAction = new AccountOutSelf(); accAction.exec(request, response);
+		} else if (path.equals("/user_active.acc")){ 
+			//회원 재활성화
+			//내부에서 링크 보내줌.
+			accAction = new AccountActive(); accAction.exec(request,response);
+		}else if (path.equals("/user_forced_out.acc")) {
+			//유저 강제 탈퇴
+			//내부에서 링크 보내줌
+			accAction = new AccountForcedOut(); accAction.exec(request, response);
+		}else if (path.equals("/user_del.acc")) {
+			//유저 계정 삭제
+			//내부에서 링크 보내줌
+			accAction = new AccountDelete(); accAction.exec(request, response);
+		} else if (path.equals("/idsearch.acc")) {
+			//유저 아이디 검색 폼
+			request.getRequestDispatcher("/acc/idsearch.jsp").forward(request,response);
+		} else if (path.equals("/id_search_act.acc")) {
+			//유저 아이디 검색 실행
+			//내부에서 링크 보내줌
+			accAction = new AccountIdSearch(); accAction.exec(request, response);
+		} else if (path.equals("/pass_search_act.acc")) {
+			//유저 패스워드 검색 실행
+			//내부에서 링크 보내줌
+			accAction = new AccountPassSearch(); accAction.exec(request, response);
 		}
 	}
 }

@@ -18,7 +18,7 @@ public class AccountUserEdit implements AccountAction{
 		dto.setBirth(request.getParameter("birth"));
 		dto.setEmail(request.getParameter("email"));
 		dto.setPhonenum(request.getParameter("phonenum"));
-		dto.setPostnum(Integer.parseInt(request.getParameter("postnum")));
+		dto.setPostnum(request.getParameter("postnum"));
 		dto.setAddress(request.getParameter("basic_addr"));
 		dto.setDetail_address(request.getParameter("addr"));
 		dto.setPass(request.getParameter("pass"));

@@ -6,7 +6,7 @@
 	background-color:transparent;
 	}
 </style>
-	<%@include file="air/air_main.jsp" %>
+	<%@include file="./air/air_main.jsp" %>
 	
 	
 <%@include file = "inc/footer.jsp" %>

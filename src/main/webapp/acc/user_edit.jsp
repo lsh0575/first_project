@@ -69,7 +69,7 @@
 				$("#postnum_form_input").click();
 			});
 			$("#form").on("submit",function(){
-				} else if ($("#pass_form_input").val().trim()==""){
+				if ($("#pass_form_input").val().trim()==""){
 					alert('비밀번호를 입력해주세요.');
 					$("#pass_form_input").focus();
 					return false;

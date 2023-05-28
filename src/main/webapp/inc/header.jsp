@@ -15,15 +15,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
+<h1 class="thrdp_hidden">ThreadPool</h1>
 <nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}">
-					<img src="${pageContext.request.contextPath}/img/main_logo.png" width="147px" height="24px" alt="Threadpool">
+					<img src="${pageContext.request.contextPath}/img/main_logo.png" width="147" height="24" alt="Threadpool">
 				</a>
 			</div>
 			<div class="" id="myNavbar">
+				<h2 class="thrdp_hidden">헤더 메뉴</h2>
 				<ul class="nav navbar-nav navbar-right">
 					<c:choose>
 						<c:when test="${sessionScope.account!=null}">
