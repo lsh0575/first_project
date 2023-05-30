@@ -26,7 +26,12 @@
 						<tbody>
 							<c:forEach var="dto" items="${page_count.list}">
 								<tr>
-									<td><input type="checkbox" <c:if test="${sessionScope.account.role_id eq 1}"></c:if>name="check" value="${dto.id}"/>
+									
+									<td>
+										<c:if test="${dto.role_name ne '관리자'}">
+											<input type="checkbox"  name="check" value="${dto.id}"/>
+										</c:if>
+									</td>
 									<td>${dto.role_name}</td>
 									<td>
 										<a href="${pageContext.request.contextPath}/user.acc?id=${dto.id}" title="${dto.id}의 상세페이지로 이동합니다.">${dto.id}</a>
