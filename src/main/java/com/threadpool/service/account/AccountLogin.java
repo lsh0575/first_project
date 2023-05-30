@@ -19,7 +19,7 @@ public class AccountLogin implements AccountAction{
 		AccountDto accountData = dao.login(input);
 		if (accountData!=null) { //계정은 있을 때
 			if (accountData.getStatus_id() != 0) { //계정이 활성화 상태가 아닌 경우
-				response.getWriter().println("<script>alert('비활성화된 아이디입니다.\\n비활성화 사유 : \\n"+accountData.getOut_reason()+"');"
+				response.getWriter().print("<script>alert('비활성화된 아이디입니다.\\n비활성화 사유 : \\n"+accountData.getOut_reason()+"');"
 											+ "location.href='"+request.getContextPath()+"';</script>");
 			} else { //계정이 활성화상태일 때
 				request.getSession().setAttribute("account", accountData);

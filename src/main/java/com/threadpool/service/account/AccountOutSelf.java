@@ -17,7 +17,7 @@ public class AccountOutSelf implements AccountAction{
 		int insertOut = 0;
 		dto.setId(request.getParameter("id"));
 		dto.setPass(request.getParameter("pass"));
-		dto.setOut_reason(request.getParameter("out_reason"));
+		dto.setOut_reason(request.getParameter("out_reason").trim());
 		dto.setStatus_id(1);
 		
 		AccountDao dao= new AccountDao();

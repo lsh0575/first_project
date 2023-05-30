@@ -51,7 +51,7 @@ create table out_user(
 id varchar(40) not null primary key,
 foreign key(id) references thrdp_account(id)
 On delete cascade on update cascade,
-out_reason varchar(255),
+out_reason text,
 out_date datetime not null default(current_timestamp) );
 
 insert into thrdp_account 
