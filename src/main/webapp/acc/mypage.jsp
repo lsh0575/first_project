@@ -11,7 +11,7 @@
 		</p>
 		</c:if>
 		<p>
-			<img class="btn" src="${requestScope.account.pic}" alt="프로필 이미지" width="200px" height="200px">
+			<img class="btn" src="${requestScope.account_detail.pic}" alt="프로필 이미지" width="200px" height="200px">
 		</p>
 		<!-- Detail Accountinfo -->
 		<div class="col-sm-12">
@@ -59,10 +59,22 @@
 							<td>${requestScope.account_detail.company_num}</td>
 						</tr>
 					</c:if>
+					<c:if test="${sessionScope.account.role_id eq 1}">
+						<tr>
+							<th scope="row">가입 아이피</th>
+							<td>${requestScope.account_detail.create_ip}</td>
+						</tr>
+					</c:if>
 					<c:if test="${requestScope.account_detail.out_date!=null}">
 						<tr>
 							<th scope="row">탈퇴 날짜</th>
 							<td>${requestScope.account_detail.out_date}</td>
+						</tr>
+					</c:if>
+					<c:if test="${(sessionScope.account.role_id eq 1) && requestScope.account_detail.out_date!=null}">
+						<tr>
+							<th scope="row">탈퇴 사유</th>
+							<td>${requestScope.account_detail.out_reason}</td>
 						</tr>
 					</c:if>
 				</tbody>

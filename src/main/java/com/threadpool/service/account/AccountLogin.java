@@ -17,9 +17,13 @@ public class AccountLogin implements AccountAction{
 		input.setId(request.getParameter("id"));
 		input.setPass(request.getParameter("pass"));
 		AccountDto accountData = dao.login(input);
+		
+		
 		if (accountData!=null) { //계정은 있을 때
 			if (accountData.getStatus_id() != 0) { //계정이 활성화 상태가 아닌 경우
-				response.getWriter().print("<script>alert('비활성화된 아이디입니다.\\n비활성화 사유 : \\n"+accountData.getOut_reason()+"');"
+				String out_reason = accountData.getOut_reason().replaceAll("\r\n", " \\\\n"); // \\ \\ n으로 분리. 그러면 아래 문장에서 \\n으로 입력이 되고, script 안에서 \n으로 출력됨.
+				System.out.println(out_reason);
+				response.getWriter().print("<script>alert(\"비활성화된 아이디입니다.\\n비활성화 사유 : \\n"+out_reason+"\");"
 											+ "location.href='"+request.getContextPath()+"';</script>");
 			} else { //계정이 활성화상태일 때
 				request.getSession().setAttribute("account", accountData);
