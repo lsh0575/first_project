@@ -1,0 +1,54 @@
+-- 메시지 기능
+-- 계정이 탈퇴되거나 삭제되어도 메세지 자체는 남아있었으면 함.
+
+-- 각 메세지 글에 대한 테이블
+Create table thrdp_message(
+	-- 글 번호 (pk)
+	msg_no       int not null primary key auto_increment,
+	
+	-- 제목
+	msg_title    varchar(250) not null,
+	
+	 -- 글내용
+	msg_context  text not null,
+	
+	-- 발신자, null이라면 삭제된 계정입니다.
+	msg_sender   varchar(40),
+	Foreign key(msg_sender) references thrdp_account(id)
+	On delete cascade on update cascade,
+	
+	-- 발신 시간
+	msg_send_time timestamp not null default(current_timestamp)
+
+);
+
+
+-- 수신자에 대한 테이블
+Create table thrdp_recieve(
+	-- 수신번호
+	msg_recieve_no int not null primary key auto_increment,
+	
+	-- 수신자
+	msg_reciever varchar(40) not null, -- 글 수신자 id
+	Foreign key(msg_reciever) references thrdp_account(id)
+	On delete cascade on update cascade,
+	
+	-- 글 번호
+	msg_no int not null,
+	Foreign key(msg_no) references thrdp_message(msg_no)
+	On delete cascade on update cascade
+);
+
+-- 읽었는지 여부 테이블
+Create table thrdp_msg_read(
+	-- 수신번호(수신자, 글번호를 알 수 있음)
+	msg_recieve_no int not null primary key,
+	foreign key(msg_recieve_no) references thrdp_recieve(msg_recieve_no)
+	On delete cascade on update cascade,
+	
+	-- 메시지 확인여부
+	msg_read tinyint not null default(false),
+	
+	-- 읽은 시간 (안읽었으면 null)
+	msg_read_time timestamp
+);

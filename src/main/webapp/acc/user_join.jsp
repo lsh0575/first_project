@@ -75,7 +75,7 @@
 				$("#postnum_form_input").click();
 			});
 			//// 아이디 입력 중복 확인
-			$("#id_form_input").on("blur",function(){
+			$("#id_form_input").on("keyup",function(){
 				if ($("#id_form_input").val().trim()!=""){
 					$.ajax({
 						url:"${pageContext.request.contextPath}/id_dupl.acc",
@@ -93,7 +93,7 @@
 			});
 			
 			////비밀번호 입력 확인
-			$(".pass_form").on("blur",function(){
+			$(".pass_form").on("keyup",function(){
 				if ($("#pass_re").val().trim()!=""){
 					$.ajax({
 						url:"${pageContext.request.contextPath}/pass_confirm.acc",

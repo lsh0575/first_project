@@ -35,7 +35,7 @@
 		$("#document").ready(function(){
 			
 		////비밀번호 입력 확인
-			$(".pass_form").on("blur",function(){
+			$(".pass_form").on("keyup",function(){
 				if ($("#new_pass_re").val().trim()!=""){
 					$.ajax({
 						url:"${pageContext.request.contextPath}/pass_confirm.acc",

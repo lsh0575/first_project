@@ -12,7 +12,6 @@ import com.threadpool.dto.AccountDto;
 public class AccountActive implements AccountAction{
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int outCancelResult = 0;
 		int statusUpdateResult = 0;
 		String[] checkedId = request.getParameterValues("check");
 		AccountDao dao = new AccountDao();
@@ -20,10 +19,10 @@ public class AccountActive implements AccountAction{
 			AccountDto dto = new AccountDto();
 			dto.setId(id);
 			//기본생성자로 만들어지면 status_Id는 기본값 0이므로 set해줄 필요 없음. 
-			outCancelResult += dao.userOutCancel(dto);
+			dao.userOutCancel(dto);
 			statusUpdateResult += dao.userStatusUpdate(dto);
 		}
-		if (outCancelResult!= statusUpdateResult) {
+		if (statusUpdateResult != checkedId.length) {
 			response.getWriter().println("<script>"
 					+ "alert('계정 활성화에 실패한 경우가 있습니다.');"
 					+ "history.go(-1);"
