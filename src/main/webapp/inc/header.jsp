@@ -28,69 +28,53 @@
 				<ul class="nav navbar-nav navbar-right">
 					<c:choose>
 						<c:when test="${sessionScope.account!=null}">
-						<c:choose>
-							<c:when test="${sessionScope.account.role_id eq 0}">
-								<li class="dropdown">
-									<a class="dropdown-toggle btn btn-thrdpheader" data-toggle="dropdown" href="">${sessionScope.account.id}
+							<li class="dropdown">
+								<a class="dropdown-toggle btn btn-thrdpheader" data-toggle="dropdown" href="">${sessionScope.account.id}
 									<span class="caret"></span></a>
 									<ul class="dropdown-menu">
+										<%-- 공용 메뉴 --%>
 										<li><a href="${pageContext.request.contextPath}/user.acc?id=${sessionScope.account.id}">마이페이지</a></li>
-										<li><a href="#">항공예약조회</a></li>
-										<li><a href="#">호텔예약조회</a></li>
-										<li><a href="#">마음에 든 여행지</a></li>
+										<li><a href="${pageContext.request.contextPath}/list.msg">메시지</a></li>
+										<c:choose>
+											<%-- 일반사용자 메뉴 --%>
+											<c:when test="${sessionScope.account.role_id eq 0}">
+												<li><a href="#">항공예약조회</a></li>
+												<li><a href="#">호텔예약조회</a></li>
+												<li><a href="#">마음에 든 여행지</a></li>
+											</c:when>
+											<%-- 일반사용자 메뉴 --%>
+											<%-- 관리자 --%>
+											<c:when test="${sessionScope.account.role_id eq 1}">
+												<li><a href="${pageContext.request.contextPath}/user_list.acc">고객정보 조회</a></li>
+											</c:when>
+											<%-- 관리자 --%>
+											<%-- 항공사업자 --%>
+											<c:when test="${sessionScope.account.role_id eq 2}">
+												<li class="dropdown">
+												<li><a href="#">상품관리</a></li>
+												<li><a href="#">예약 및 리뷰 관리</a></li>
+											</c:when>
+											<%-- 항공사업자 --%>
+											<%-- 숙박사업자 --%>
+											<c:when test="${sessionScope.account.role_id eq 3}">
+												<li><a href="#">상품관리</a></li>
+												<li><a href="#">예약 및 리뷰 관리</a></li>
+											</c:when>
+											<%-- 숙박사업자 --%>
+											<%-- 여행사업자 --%>
+											<c:when test="${sessionScope.account.role_id eq 4}">
+												<li><a href="#">상품관리</a></li>
+												<li><a href="#">예약 및 리뷰 관리</a></li>
+											</c:when>
+											<%-- 여행사업자 --%>
+										</c:choose>
+										
 										<li><a href="${pageContext.request.contextPath}/logout.acc">로그아웃</a></li>
+										<%-- 사용자메뉴 --%>
 									</ul>
 								</li>
 							</c:when>
-							<c:when test="${sessionScope.account.role_id eq 1}">
-								<li class="dropdown">
-									<a class="dropdown-toggle btn btn-thrdpheader" data-toggle="dropdown" href="">${sessionScope.account.id}
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="${pageContext.request.contextPath}/user.acc?id=${sessionScope.account.id}">마이페이지</a></li>
-										<li><a href="${pageContext.request.contextPath}/user_list.acc">고객정보 조회</a></li>
-										<li><a href="${pageContext.request.contextPath}/logout.acc">로그아웃</a></li>
-									</ul>
-								</li>
-							</c:when>
-							<c:when test="${sessionScope.account.role_id eq 2}">
-								<li class="dropdown">
-									<a class="dropdown-toggle btn btn-thrdpheader" data-toggle="dropdown" href="">${sessionScope.account.id}
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="${pageContext.request.contextPath}/user.acc?id=${sessionScope.account.id}">마이페이지</a></li>
-										<li><a href="#">상품관리</a></li>
-										<li><a href="#">예약 및 리뷰 관리</a></li>
-										<li><a href="${pageContext.request.contextPath}/logout.acc">로그아웃</a></li>
-									</ul>
-								</li>
-							</c:when>
-							<c:when test="${sessionScope.account.role_id eq 3}">
-								<li class="dropdown">
-									<a class="dropdown-toggle btn btn-thrdpheader" data-toggle="dropdown" href="">${sessionScope.account.id}
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="${pageContext.request.contextPath}/user.acc?id=${sessionScope.account.id}">마이페이지</a></li>
-										<li><a href="#">상품관리</a></li>
-										<li><a href="#">예약 및 리뷰 관리</a></li>
-										<li><a href="${pageContext.request.contextPath}/logout.acc">로그아웃</a></li>
-									</ul>
-								</li>
-							</c:when>
-							<c:when test="${sessionScope.account.role_id eq 4}">
-								<li class="dropdown">
-									<a class="dropdown-toggle btn btn-thrdpheader" data-toggle="dropdown" href="">${sessionScope.account.id}
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="${pageContext.request.contextPath}/user.acc?id=${sessionScope.account.id}">마이페이지</a></li>
-										<li><a href="#">상품관리</a></li>
-										<li><a href="#">예약 및 리뷰 관리</a></li>
-										<li><a href="${pageContext.request.contextPath}/logout.acc">로그아웃</a></li>
-									</ul>
-								</li>
-							</c:when>
-							</c:choose>
-						</c:when>
+						<%-- 비로그인 메뉴 --%>	
 						<c:otherwise>
 							<li class="dropdown">
 							<form action="${pageContext.request.contextPath}/login.acc" method="post">
@@ -109,6 +93,7 @@
 							<li><a class="btn btn-thrdpheader" href="${pageContext.request.contextPath}/join.acc">회원가입</a><li>
 							</li>
 						</c:otherwise>
+						<%-- 비로그인 메뉴 --%>		
 					</c:choose>
 				</ul>
 			</div>
