@@ -26,13 +26,15 @@
 				<label for="role4">여행사업자</label>
 			</div>
 		</c:if>
-		<div class="form-group">
+		<div class="form-group" id="reciever_div">
 			<label for="reciever" >수신자 아이디</label><span id="idcheck"></span>
 			<input type="text" class="form-control" name="reciever" id="reciever" placeholder="수신자 아이디를 입력해주세요"/>
+			<div id="result" class="dropdown">
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="title">제목</label>
-			<input type="text" class="form-control" name="title" id="title" placeholder="수신자 아이디를 입력해주세요"/>
+			<input type="text" class="form-control" name="title" id="title" placeholder="메시지 제목을 입력해주세요"/>
 		</div>
 		<div class="form-group">
 			<label for="context">내용</label>
@@ -46,7 +48,28 @@
 		</div>
 	</form>
 	<script>
+
+	
 		$(document).ready(function(){
+			//제목 입력할 때 탭 또는 엔터면 인식해서 다음으로
+			$("#reciever").on("keydown",function(e){
+				if (e.keyCode==9||e.keyCode==13||e.keycode==108){
+					$("#context").focus();
+					e.keyCode==null;
+					return false;
+				}
+			});
+			//아이디 입력할때 탭 또는 엔터면 인식해서 다음으로
+			$("#reciever").on("keydown",function(e){
+				if (e.keyCode==9||e.keyCode==13||e.keycode==108){
+					$(".idselect").first().click();
+					$("#title").focus();
+					e.keyCode==null;
+					return false;
+				}
+			});
+			
+			
 			//체크박스 하나라도 체크되어있으면 수신자 아이디 잠그기
 			var recievercontrol = function(){
 				if ($(":checkbox[name='role']:checked").length!=0){
@@ -57,6 +80,7 @@
 					$("#reciever").attr("readonly",false);
 					$("#reciever").attr("placeholder","수신자 아이디를 입력해주세요");					
 				}
+				$("#idcheck").empty();
 			};
 			//발송그룹 선택하면 수신자 아이디 잠그기
 			$(":checkbox[name='role']").on("click",recievercontrol);
@@ -79,12 +103,111 @@
 				recievercontrol();
 			});
 			//빈칸체크
-			$("#messageform").on("submit",function(){
-				if ($(":checkbox[name='role']:checked").length==0 && $("#reciever").val().trim()=="" ){
+			$("#messageform").on("submit",function(){				
+				if ($(":checkbox[name='role']:checked").length==0 && $("#idcheck").attr("data-check")!="true" ){
 					alert('수신자가 없습니다!');
+					$("#reciever").focus();
+					return false;
+				} else if ($("#title").val().trim()==""){
+					alert('제목을 입력해주세요!');
+					$("#title").focus();
+					return false;
+				} else if ($("#context").val().trim()==""){
+					alert('내용을 입력해주세요!');
+					$("#context").focus();
 					return false;
 				}
 			});
+			
+			//아이디 자동완성 ajax
+			
+			var idcheckTrue = function(){
+				$("#idcheck").css("color","green");
+				$("#idcheck").html(" 아이디 확인 성공");
+				$("#idcheck").attr("data-check","true");
+			}
+			var idcheckFalse = function(){
+				$("#idcheck").css("color","red");
+				$("#idcheck").html(" 아이디가 존재하지 않습니다.");
+				$("#idcheck").attr("data-check","false");
+			}
+			
+			
+			var focus_id=false;
+			
+			// 마우스 클릭/빼기
+			$("#reciever").on("keyup focus",function(){ //아이디 입력창에서 키를 눌렀을 때
+				if ($("#reciever").val().trim()!=""){ //만약 입력값이 있다면
+					//자동완성
+					$.ajax({
+						data : { "id" : $("#reciever").val() },
+						url : "${pageContext.request.contextPath}/idlist.msg",
+						type : "get",
+						dataType : "json",
+						success : function(json){
+							$("#result").attr("class", "dropdown open");
+							var ul = $("<ul>").attr("class","dropdown-menu");
+							if (json[0]!=null){ //검색결과가 있다면
+								json.forEach((obj)=>{
+									var id = $("<a>").attr("class","idlist idselect").html(obj.id);
+									id = $("<li>").html(id);
+									ul.append(id);
+								});
+								$("#result").html(ul);
+								//자동완성된 아이디 클릭하면 값으로 들어가게 하기
+								$(".idselect").on("click",function(){
+									if (focus_id==true){
+										$("#reciever").val($(".idselect").first().text());
+										idcheckTrue();
+									}
+									$("#result").empty();
+								});
+								$("#result").on("mouseout",function(){
+									focus_id=false;
+								});
+								$("#result").on("mouseover",function(){
+									focus_id=true;
+								});
+								$("#reciever").on("focus",function(){
+									focus_id=true;
+								});
+								$("#reciever").on("focusout",function(){
+									if (focus_id==false){
+										$("#result").empty();
+									}
+								})
+									
+							} else { //검색결과가 없는 경우 비우기
+								$("#result").empty();
+							}
+						},
+						error : function(xhr,textStatus,errorThrown){
+							$("#idcheck").html(textStatus + " HTTP - "+xhr.status+errorThrown);
+						}
+					});
+				//아이디 확인
+				$.ajax({
+					data : { "id" : $("#reciever").val() },
+					url : "${pageContext.request.contextPath}/idcheck.msg",
+					type : "get",
+					dataType : "json",
+					success : function(json){
+						if (json.check){ //정확한 아이디가 맞다면
+							idcheckTrue();
+						} else {
+							idcheckFalse();
+						}
+					},
+					error : function(xhr,textStatus,errorThrown){
+						$("#idcheck").html("idcheck error - "+ textStatus + " HTTP - "+xhr.status+errorThrown);
+					}
+				});
+				} else { //입력값이 없다면
+					$("#result").empty();
+					idcheckFalse();
+				}
+			});
+			
 		});
 	</script>
 	<!-- 메세지 폼 -->

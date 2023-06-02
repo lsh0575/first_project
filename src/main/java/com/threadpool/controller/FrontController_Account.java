@@ -61,9 +61,6 @@ public class FrontController_Account extends HttpServlet {
 		}else if (path.equals("/id_dupl.acc")) {
 			//아이디 중복체크 ajax
 			accAction = new AccountDuplCheck(); accAction.exec(request, response);
-		} else if (path.equals("/pass_confirm.acc")) {
-			//비밀번호 확인 ajax
-			accAction = new AccountConfirmPass(); accAction.exec(request, response);
 		} else if (path.equals("/user.acc")) {
 			//마이페이지
 			accAction = new AccountUserDetail(); accAction.exec(request, response);

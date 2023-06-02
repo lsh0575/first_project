@@ -59,6 +59,12 @@ public class FrontController_Message extends HttpServlet {
 		} else if (path.equals("/list_ajax.msg")) {
 			//메시지 리스트 ajax
 			serv = new ThrdpMessagePagingAjax(); serv.exec(request, response);
+		} else if (path.equals("/idlist.msg")) {
+			//아이디 자동완성 ajax
+			serv = new ThrdpMessageIDListAjax(); serv.exec(request, response);
+		} else if (path.equals("/idcheck.msg")) {
+			//아이디 체크 ajax
+			serv = new ThrdpMessageIDCheckAjax(); serv.exec(request, response);
 		}
 	}
 	

@@ -103,20 +103,17 @@
 			
 			////비밀번호 입력 확인
 			$(".pass_form").on("keyup",function(){
-				if ($("#pass_re").val().trim()!=""){
-					$.ajax({
-						url:"${pageContext.request.contextPath}/pass_confirm.acc",
-						type:"get",
-						dataType:"html",
-						data:{"pass":$('#pass_form_input').val(),
-								"pass_re":$('#pass_re').val()},
-						success:function(data){
-							$("#pass_confirm").html(data);
-						},
-						error:function(xhr,textStatus,errorThrown){
-							$("#id_is_dupl").html(xhr.status + "-"+textStatus+":"+errorThrown);
-						}
-					})
+				if ($("#pass_form_input").val()!="" && $("#pass_re").val()!="" ){
+					//비밀번호와 비밀번호 재입력이 같지 않다면
+					if($("#pass_form_input").val()!=$("#pass_re").val()){
+						$("#pass_confirm").css("color","red");
+						$("#pass_confirm").html(" 비밀번호를 다시 확인해주세요");
+						$("#pass_confirm").attr("data-check","false");
+					} else { //비밀번호 재입력과 비밀번호가 같다면
+						$("#pass_confirm").css("color","green");
+						$("#pass_confirm").html(" 비밀번호가 일치합니다.");
+						$("#pass_confirm").attr("data-check","true");
+					}
 				}
 			});
 			
@@ -134,7 +131,7 @@
 					alert('비밀번호를 입력해주세요.');
 					$("#pass_form_input").focus();
 					return false;
-				}else if ($("#pass_check").data("check") != 'checked'){ //비밀번호 확인
+				}else if ($("#pass_confirm").attr("data-check") != 'true'){ //비밀번호 확인
 					alert ('비밀번호가 일치하지 않습니다.');
 					$("#pass_form_input").focus();
 					return false;

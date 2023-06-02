@@ -284,4 +284,60 @@ public class MessageDao {
 		}
 		return result;
 	}
+	
+	public List<AccountDto> idList(AccountDto id){
+		List<AccountDto> list = new ArrayList<>();
+		Connection conn = null; PreparedStatement pstmt = null; ResultSet rset = null;
+		try {
+			conn = new DBManager().getConnection();
+			pstmt = conn.prepareStatement("select id from thrdp_account where status_id=0 and id like ? order by id asc limit 0,5");
+			pstmt.setString(1, id.getId()+"%");
+			rset = pstmt.executeQuery();
+			while (rset.next()) {
+				AccountDto searchResult = new AccountDto();
+				searchResult.setId(rset.getString("id"));
+				list.add(searchResult);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rset!=null) {
+				try { rset.close(); } catch (Exception e) { e.printStackTrace(); }
+			}
+			if (pstmt!=null) {
+				try { pstmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			}
+			if (conn!=null) {
+				try { conn.close(); } catch (Exception e) { e.printStackTrace(); }
+			}
+		}
+		return list;
+	}
+	
+	public boolean idCheck(AccountDto id){
+		boolean result = false;
+		Connection conn = null; PreparedStatement pstmt = null; ResultSet rset = null;
+		try {
+			conn = new DBManager().getConnection();
+			pstmt = conn.prepareStatement("select id from thrdp_account where id=?");
+			pstmt.setString(1, id.getId());
+			rset = pstmt.executeQuery();
+			if (rset.next()) {
+				result = true;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rset!=null) {
+				try { rset.close(); } catch (Exception e) { e.printStackTrace(); }
+			}
+			if (pstmt!=null) {
+				try { pstmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			}
+			if (conn!=null) {
+				try { conn.close(); } catch (Exception e) { e.printStackTrace(); }
+			}
+		}
+		return result;
+	}
 }
