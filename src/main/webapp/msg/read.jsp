@@ -16,7 +16,7 @@
 	<hr/>
 	<div class="form-group">
 		<p><strong>내용</strong></p>
-		<textarea rows="15" class="form-control" style="background-color:white;" readonly>${msg.msg_context}</textarea>
+		<textarea rows="15" class="form-control" style="background-color:white; resize:none;" readonly>${msg.msg_context}</textarea>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-3"></div>
