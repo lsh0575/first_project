@@ -157,7 +157,7 @@
 								//자동완성된 아이디 클릭하면 값으로 들어가게 하기
 								$(".idselect").on("click",function(){
 									if (focus_id==true){
-										$("#reciever").val($(".idselect").first().text());
+										$("#reciever").val($("this").text());
 										idcheckTrue();
 									}
 									$("#result").empty();
