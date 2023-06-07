@@ -31,34 +31,14 @@ public class AccountDto {
 	private String out_reason;
 	private String out_date;
 
+	//table thrdp_account_external_auth
+	private boolean kakao_auth;
+	private String kakao_account;
+	private boolean naver_auth;
+	private String naver_account;
 	
 	//////// Constructor
 	public AccountDto() { super(); }
-	
-	public AccountDto(String id, String pass, String name, String birth, String email, String phonenum, String postnum,
-			String address, String detail_address, int role_id, int status_id, String create_date, String create_ip,
-			String pic, String role_name, String status_name, String company_num, String out_reason, String out_date) {
-		super();
-		this.id = id;
-		this.pass = pass;
-		this.name = name;
-		this.birth = birth;
-		this.email = email;
-		this.phonenum = phonenum;
-		this.postnum = postnum;
-		this.address = address;
-		this.detail_address = detail_address;
-		this.role_id = role_id;
-		this.status_id = status_id;
-		this.create_date = create_date;
-		this.create_ip = create_ip;
-		this.pic = pic;
-		this.role_name = role_name;
-		this.status_name = status_name;
-		this.company_num = company_num;
-		this.out_reason = out_reason;
-		this.out_date = out_date;
-	}
 
 
 
@@ -82,6 +62,13 @@ public class AccountDto {
 	public String getAddress() { return address; } public void setAddress(String address) { this.address = address; }
 	public String getOut_reason() { return out_reason; } public void setOut_reason(String out_reason) { this.out_reason = out_reason; }
 	public String getOut_date() { return out_date; } public void setOut_date(String out_date) { this.out_date = out_date; }
+	public boolean isKakao_auth() { return kakao_auth; } public void setKakao_auth(boolean kakao_auth) { this.kakao_auth = kakao_auth; } 
+	public String getKakao_account() { return kakao_account; } public void setKakao_account(String kakao_account) { this.kakao_account = kakao_account; } 
+	public boolean isNaver_auth() { return naver_auth; } public void setNaver_auth(boolean naver_auth) { this.naver_auth = naver_auth; } 
+	public String getNaver_account() { return naver_account; } public void setNaver_account(String naver_account) { this.naver_account = naver_account; }
+
+
+
 	@Override
 	public String toString() {
 		return "AccountDto [id=" + id + ", pass=" + pass + ", name=" + name + ", birth=" + birth + ", email=" + email
@@ -89,7 +76,9 @@ public class AccountDto {
 				+ detail_address + ", role_id=" + role_id + ", status_id=" + status_id + ", create_date=" + create_date
 				+ ", create_ip=" + create_ip + ", pic=" + pic + ", role_name=" + role_name + ", status_name="
 				+ status_name + ", company_num=" + company_num + ", out_reason=" + out_reason + ", out_date=" + out_date
-				+ "]";
-	}
+				+ ", kakao_auth=" + kakao_auth + ", kakao_account=" + kakao_account + ", naver_auth=" + naver_auth
+				+ ", naver_account=" + naver_account + "]";
+	} 
+	
 	
 }

@@ -116,7 +116,7 @@ public class AccountDao {
 		Connection conn = null; PreparedStatement pstmt=null; ResultSet rset= null;
 		try {
 		 	conn = db.getConnection();
-		 	pstmt = conn.prepareStatement("select * from thrdp_account natural join thrdp_role left join thrdp_company_info using(id) left join out_user using(id) where id=?");
+		 	pstmt = conn.prepareStatement("select * from thrdp_account natural join thrdp_role left join thrdp_company_info using(id) left join out_user using(id) left join thrdp_account_external_auth using(id) where id=?");
 		 	pstmt.setString(1, dto.getId());
 		 	rset = pstmt.executeQuery();
 		 	if (rset.next()) {
@@ -138,6 +138,11 @@ public class AccountDao {
 		 		result.setCompany_num(rset.getString("company_num"));
 		 		result.setOut_reason(rset.getString("out_reason"));
 		 		result.setOut_date(rset.getString("out_date"));
+		 		result.setKakao_auth(rset.getBoolean("kakao_auth"));
+		 		result.setKakao_account(rset.getString("kakao_account"));
+		 		result.setNaver_auth(rset.getBoolean("naver_auth"));
+		 		result.setNaver_account(rset.getString("naver_account"));
+		 		
 		 	}
 		} catch (Exception e) {
 			e.printStackTrace();

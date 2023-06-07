@@ -72,7 +72,9 @@
 							checkbox.attr("name","check");
 							checkbox.val(i.msg_recieve_no);
 							checkbox = $("<td>").append(checkbox);
-						var sender = $("<td>").append(i.msg_sender);
+						var sender =  $("<a>").attr("href","${pageContext.request.contextPath}/user.acc?id="+i.msg_sender);
+							sender.append(i.msg_sender);
+							sender = $("<td>").append(sender);
 						var title = $("<a>").attr("href","${pageContext.request.contextPath}/read.msg?msgno="+i.msg_recieve_no);
 							title.append(i.msg_title);
 							title = $("<td>").append(title);

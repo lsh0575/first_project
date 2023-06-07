@@ -3,7 +3,7 @@
 <%@include file= "inc/header.jsp" %>
 <style>
 	.navbar{
-	background-color:transparent;
+	background-color:rgba(0,0,0.2,0.2);
 	}
 </style>
 	<%@include file="./air/air_main.jsp" %>

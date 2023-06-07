@@ -1,0 +1,12 @@
+-- 카카오, 네이버 인증
+
+Create table thrdp_account_external_auth(
+id varchar(40) not null primary key, -- 아이디 받아오기
+foreign key(id) references thrdp_account(id)
+On delete cascade on update cascade,
+kakao_auth boolean not null default(false), -- 카카오 인증여부
+kakao_account varchar(100), -- 아이디
+naver_auth boolean not null default(false), -- 네이버 인증 여부
+naver_account varchar(100) -- 아이디
+);
+
