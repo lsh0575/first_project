@@ -35,7 +35,7 @@
 	<form action="${pageContext.request.contextPath}/detail.travel"
 		method="get" id="travelSearch">
 		<fieldset>
-			<h3 class="panel-heading">Travel-List</h3>
+			<h3>Travel-List</h3>
 			<div class="search-container">
 				<select id="search-select" name="search-select"
 					class="search-select">
@@ -70,7 +70,7 @@
 	<form action="" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<legend>여행 리스트</legend>
-			<div class="container panel panel-info">
+			<div class="container">
 				<table class="table table-striped">
 					<c:forEach var="dto" items="${travel.list10}" varStatus="status">
 						<thead>
@@ -91,7 +91,7 @@
 									<p class="imgbox img-rounded">
 										<a
 											href="${pageContext.request.contextPath}/detail.travel?tno=${dto.tno}">
-											<img src="/upload/${dto.timages_1}" alt="${dto.ttitle}">
+											<img src="${pageContext.request.contextPath}/upload/${dto.timages_1}" alt="${dto.ttitle}">
 										</a>
 									</p>
 								</td>

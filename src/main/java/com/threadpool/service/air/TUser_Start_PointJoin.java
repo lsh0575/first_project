@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.threadpool.dao.air.UserAviationDao;
+import com.threadpool.dao.UserAviationDao;
 import com.threadpool.dto.air.AviationDto;
 
 

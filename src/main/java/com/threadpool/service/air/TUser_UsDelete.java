@@ -5,7 +5,8 @@ import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.threadpool.dao.air.UserReservationDao;
+
+import com.threadpool.dao.UserReservationDao;
 import com.threadpool.dto.AccountDto;
 import com.threadpool.dto.air.ReservationDto;
 

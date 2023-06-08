@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.threadpool.dto.air.*;
-import com.threadpool.dao.air.*;
+import com.threadpool.dao.AdminAviationDao;
+import com.threadpool.dto.air.AviationDto;
 
 
 public class TAdmin_AvDetail implements TAction {

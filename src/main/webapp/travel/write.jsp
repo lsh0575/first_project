@@ -6,7 +6,7 @@
 	.container-field { padding:5% }
 </style>
 
-<div class="container-field panel panel-info body-top">
+<div class="container-field  panel-info body-top">
 	<h3 class="text-center" >Travel Review</h3>
 	<form action="${pageContext.request.contextPath}/write.travel"
 		  method="post"
@@ -16,8 +16,8 @@
 	<legend>Travel Review(CREATE)</legend>
 	
 <div class="from-group">
-	<div class="panel">
-		<div class="panel-body">
+	<div>
+		<div>
 		<label for="tcategory">여행 카테고리</label> <br/>
 			<input type="radio" name="tcategory" value="1" id="healing" checked> 
 			<label for="healing">healing</label>
@@ -28,61 +28,61 @@
 			<input type="radio" name="tcategory" value="4" id="site"> 
 			<label for="site">site</label>
 		</div>
-		<div class="panel-body">
+		<div>
 			<label for="tcost">여행 경비</label> 
 			<input type="number" name="tcost" id="tcost" placeholder="여행경비입력" min="0" step="5000" class="form-control">
 		</div>
 	</div>
-	<div class="panel">	
-		<div class="panel-body">
+	<div>	
+		<div>
 			<label for="tstart_date">여행 시작일</label> 
 			<input type="date" name="tstart_date" id="tstart_date" min="1980-01-01" max="2999-12-31" class="form-control">
 		</div>
-		<div class="panel-body">
+		<div>
 			<label for="tend_date">여행 종료일</label> 
 			<input type="date" name="tend_date" id="tend_date" min="1980-01-01" max="2999-12-31" class="form-control" onchange="validateEndDate()">
 		</div>
 	</div>
 </div>
 
-	<div class="panel">	
-		<div class="panel-body">
+	<div>	
+		<div>
 			<label for="tname">작성자</label>
 			<input type="text" id="tname" name="tname" value="${sessionScope.account.id}" class="form-control" readonly />
 		</div>
-		<div class="panel-body">
+		<div>
 			<label for="tpass">비밀번호</label>
 			<input type="password" id="tpass" name="tpass" class="form-control" placeholder="패스워드를 입력하세요.">
 		
 		</div>
 	</div>
 	
-	<div class="panel">	
-	<div class="panel-body">
+	<div>	
+	<div>
 		<label for="ttitle">제목</label>
 		<input type="text" name="ttitle" id="ttitle" class="form-control" placeholder="제목을 입력하세요." />
 	</div>
-	<div class="panel-body">
+	<div>
 		<label for="tcontent">내용</label>
 		<textarea name="tcontent" id="tcontent" class="form-control" style="resize: none;" rows="10" placeholder="내용을 입력하세요."></textarea>
 	</div>
 	</div>
 	
-	<div class="panel">
-		<div class="panel-body">
+	<div>
+		<div class="form-group">
 			<label for="timages">이미지 업로드</label>
 			<input type="file" id="timages" name="timages_1">
 		</div>
-		<div class="panel-body">
+		<div class="form-group">
 			<input type="file" id="timages_2" name="timages_2">
 		</div>
-		<div class="panel-body">
+		<div class="form-group">
 			<input type="file" id="timages_3" name="timages_3">
 		</div>
 	</div>
 	
-		<div class="panel">
-			<div class="panel-body">
+		<div>
+			<div>
 				<label for="score">추천점수</label><br> 
 					<input type="radio" name="tscore" id="score1" value="1" checked>
 					<label for="score1">1</label>
@@ -96,14 +96,14 @@
 					<label for="score5">5</label>
 			</div>
 		</div>
-	<div class="panel">
-		<div class="panel-body">
+	<div>
+		<div class="form-group">
 			<input type="submit" id="submit" value="등록" class="form-control btn btn-success">
 		</div>
-		<div class="panel-body">
+		<div class="form-group">
 			<input type="reset" id="reset" value="취소" class="form-control btn btn-danger">
 		</div>
-		<div class="panel-body">
+		<div class="form-group">
 			<a href="${pageContext.request.contextPath}/paging.travel" class="form-control btn btn-default">목록</a>
 		</div>
 	</div>	 	

@@ -7,76 +7,76 @@
 	.img_edit img { width:40% }
 </style>
 
-	<div class="container-field panel panel-info body-top">
+	<div class="container-field body-top">
 	<form action="${pageContext.request.contextPath}/edit.travel?tno=${dto.tno}" method="post" id="edit_form">
 	<fieldset>
 	<legend>Travel EDIT(UPDATE)</legend>
 	
 	<div class="from-group">
-		<div class="panel">
-			<div class="panel-body">
+		<div>
+			<div>
 				<span class="glyphicon glyphicon-plus">카테고리</span>
 				<input type="text" id="tcategory" name="tcategory" value="${dto.tcategory_name}" readonly class="form-control">
 			</div>
-			<div class="panel-body">
+			<div>
 				<span class="glyphicon glyphicon-plus">여행경비</span>
 				<input type="text" id="tcost" name="tcost" value="${dto.tcost}" class="form-control">
 			</div>
 		</div>
-		<div class="panel">
-			<div class="panel-body">
+		<div>
+			<div>
 				<label for="tstart_date" class="glyphicon glyphicon-plus">여행시작일</label>
 				<input type="date" id="tstart_date" name="tstart_date" value="${dto.tstart_date}" class="form-control">
 			</div>
-			<div class="panel-body">
+			<div>
 				<label for="tend_date" class="glyphicon glyphicon-plus">여행종료일</label>
 				<input type="date" id="tend_date" name="tend_date" value="${dto.tend_date}" class="form-control">
 			</div>
 		</div>
 	</div>
-	<div class="panel">
-		<div class="panel-body">
+	<div>
+		<div>
 			<span class="glyphicon glyphicon-plus">작성자</span>
 			<input type="text" id="tname" name="tname" value="${dto.tname}" readonly class="form-control">
 		</div>
-		<div class="panel-body">
+		<div>
 			<label class="glyphicon glyphicon-plus" for="tpass">비밀번호</label>
 			<input type="password" id="tpass" name="tpass" class="form-control" placeholder="패스워드를 입력하세요.">
 			<span>(*) 수정 및 삭제시 필수</span>
 		</div>		
 	</div>
-	<div class="panel">
-		<div class="panel-body">
+	<div>
+		<div>
 			<span class="glyphicon glyphicon-plus">제목</span>
 			<input type="text" id="ttitle" name="ttitle" value="${dto.ttitle}" class="form-control">
 	</div>
 		
-		<div class="panel-body">
+		<div>
 			<span class="glyphicon glyphicon-plus">내용</span>
 			<textarea name="tcontent" id="tcontent" class="form-control" style="resize: none;" rows="10">${dto.tcontent}</textarea>
 		</div>	
 	</div>
 
-	<div class="panel">
-		<div class="panel-body img_edit">
+	<div>
+		<div class="img_edit">
 			<span class="glyphicon glyphicon-plus">이미지</span>
 			<p><img src="/upload/${dto.timages_1}" alt="${dto.timages_1}"></p>
 		</div>
 	</div>
-	<div class="panel">
-		<div class="panel-body">
+	<div>
+		<div>
 			<span class="glyphicon glyphicon-plus">추천점수</span>
 			<input type="text" id="tscore" name="tscore" value="${dto.tscore}" readonly class="form-control">
 		</div>
 	</div>
-	<div class="panel">
-		<div class="panel-body">
+	<div>
+		<div>
 			<input type="submit" id="submit" value="확인" class="form-control btn btn-info">
 		</div>
-		<div class="panel-body">
+		<div>
 			<input type="reset" id="reset" value="취소" class="form-control btn btn-danger">
 		</div>
-		<div class="panel-body">
+		<div>
 			<a href="${pageContext.request.contextPath}/paging.travel" class="form-control btn btn-default">목록</a>
 		</div>
 	</div>	 	

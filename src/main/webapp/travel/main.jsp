@@ -58,7 +58,7 @@
 						<div class="item <c:if test="${status.first}"> active</c:if>">
 							<a class="imgList"
 								href="${pageContext.request.contextPath}/detail.travel?tno=${dto.tno}">
-								<img src="/upload/${dto.timages_1}" alt="${dto.ttitle}">
+								<img src="${pageContext.request.contextPath}/upload/${dto.timages_1}" alt="${dto.ttitle}">
 							</a>
 							<div class="carousel-caption">
 								<h3>${dto.tname}</h3>
@@ -231,7 +231,7 @@
 <script>
 	$(document).ready( function() {
 		// 폼 제출 시 실행되는 함수
-		$("form").submit( function(event) { event.preventDefault(); // 기본 제출 동작 방지
+		$(".currency-form").submit( function(event) { event.preventDefault(); // 기본 제출 동작 방지
 			// 선택한 통화
 			var baseCurrency = $( "#base-currency").val();
 			var targetCurrency = $( "#target-currency").val();

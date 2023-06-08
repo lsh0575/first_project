@@ -5,7 +5,8 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.threadpool.dao.air.UserAviationDao;
+
+import com.threadpool.dao.UserAviationDao;
 
 public class TUser_UsList implements TAction {
 
