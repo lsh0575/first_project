@@ -11,7 +11,7 @@
   </welcome-file-list>
   <servlet>
   	<servlet-name>Account</servlet-name>
-  	<servlet-class>com.threadpool.controller.FrontController_account</servlet-class>
+  	<servlet-class>com.threadpool.controller.FrontController_Account</servlet-class>
   </servlet>
   <servlet-mapping>
 	  <servlet-name>Account</servlet-name>
