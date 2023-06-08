@@ -125,9 +125,12 @@
 		msgbtnClick();
 		$(".msgbtn").on("click",msgbtnClick);
 		
-		//삭제버튼 눌렀을 때
-		$("#deletebtn").on("click",function(){
-			
+		//빈칸체크
+		$("#form").on("submit",function(){
+			if ($(":checkbox[name=check]:checked").length==0){
+				alert('선택된 회원이 없습니다!');
+				return false;
+			}
 		});
 	});
 	</script>
