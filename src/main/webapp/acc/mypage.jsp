@@ -1,7 +1,12 @@
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.security.SecureRandom"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file= "../inc/header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%    SecureRandom random = new SecureRandom();
+		String state = new BigInteger(130, random).toString();
+		pageContext.setAttribute("state", state);%>
 	<!-- MyPage -->
 	<div class="container body-top text-center">
 		<h4>${requestScope.account_detail.id} : ${requestScope.account_detail.name}</h4>
@@ -13,6 +18,26 @@
 		<p>
 			<img class="btn" src="${requestScope.account_detail.pic}" alt="프로필 이미지" width="200px" height="200px">
 		</p>
+		<c:choose>
+			<c:when test='${requestScope.account_detail.id eq sessionScope.account.id}'>
+				<%--카카오 인증--%>
+				<c:if test='${!requestScope.account_detail.kakao_auth}'>
+					<p><a href='https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=6322b3212c52ed5df0b4129d63b7a6d3&redirect_uri=http://localhost:8080/threadpool_webproject01/kakao_auth.acc'
+					>카카오 인증하기</a></p>
+				</c:if>
+				<%--네이버 인증--%>
+				<c:if test='${!requestScope.account_detail.naver_auth}'>
+					<p><a href='https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=b8rOsHSrE677qq5RQEWZ&redirect_uri=http://localhost:8080/threadpool_webproject01/naver_auth.acc&state=${pageScope.state}'
+					>네이버 인증하기</a></p>
+				</c:if>
+			</c:when>
+		</c:choose>
+		<c:if test='${requestScope.account_detail.kakao_auth}'>
+			<p>카카오 인증이 된 아이디입니다.</p>
+		</c:if>
+		<c:if test='${requestScope.account_detail.naver_auth}'>
+			<p>네이버 인증이 된 아이디입니다.</p>
+		</c:if>
 		<!-- Detail Accountinfo -->
 		<div class="col-sm-12">
 			<table class="table table-striped">

@@ -8,7 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.threadpool.service.account.*;
+import com.threadpool.service.account.AccountAction;
+import com.threadpool.service.account.AccountActive;
+import com.threadpool.service.account.AccountDelete;
+import com.threadpool.service.account.AccountDuplCheck;
+import com.threadpool.service.account.AccountForcedOut;
+import com.threadpool.service.account.AccountIdSearch;
+import com.threadpool.service.account.AccountLogin;
+import com.threadpool.service.account.AccountLogout;
+import com.threadpool.service.account.AccountOutAccountCheck;
+import com.threadpool.service.account.AccountOutSelf;
+import com.threadpool.service.account.AccountPassEdit;
+import com.threadpool.service.account.AccountPassSearch;
+import com.threadpool.service.account.AccountUserDetail;
+import com.threadpool.service.account.AccountUserEdit;
+import com.threadpool.service.account.AccountUserJoin;
+import com.threadpool.service.account.AccountUserList;
+import com.threadpool.service.account.externalAuth.KakaoLoginAuth;
+import com.threadpool.service.account.externalAuth.NaverLoginAuth;
 
 @WebServlet("*.acc")
 public class FrontController_Account extends HttpServlet {
@@ -116,6 +133,14 @@ public class FrontController_Account extends HttpServlet {
 			//유저 패스워드 검색 실행
 			//내부에서 링크 보내줌
 			accAction = new AccountPassSearch(); accAction.exec(request, response);
+		} else if (path.equals("/kakao_auth.acc")) {
+			//카카오 인증
+			//내부에서 링크 보내줌
+			accAction = new KakaoLoginAuth(); accAction.exec(request, response);
+		} else if (path.equals("/naver_auth.acc")) {
+			//네이버 인증
+			//내부에서 링크 보내줌
+			accAction = new NaverLoginAuth(); accAction.exec(request, response);
 		}
 	}
 }
