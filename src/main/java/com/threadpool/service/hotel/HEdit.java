@@ -65,7 +65,10 @@ public class HEdit implements HotelService {
 		dtoi.setImg3(file3);
 		dtoi.setImg4(file4);
 		dtoi.setHno(Integer.parseInt(multi.getParameter("hno")));
-		if(file1 == null) { System.out.println("파일 업로드 안됨.");  dtoi.setImg1("/no.jpg"); dtoi.setImg2("/no.jpg"); dtoi.setImg3("/no.jpg"); dtoi.setImg4("/no.jpg"); msg="관리자에게 문의바랍니다.";}
+		if(file1 == null) { dtoi.setImg1("/no.jpg"); }
+		if(file2 == null) { dtoi.setImg2("/no.jpg"); }
+		if(file3 == null) { dtoi.setImg3("/no.jpg"); }
+		if(file4 == null) { dtoi.setImg4("/no.jpg"); }
 		}catch(Exception e) { e.printStackTrace(); }
 		
 		int result1 = dao.updateProd(dtop); 
