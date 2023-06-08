@@ -1,0 +1,60 @@
+CREATE TABLE `aviation` (
+  `flight_code` int NOT NULL AUTO_INCREMENT,
+  `flight` varchar(45) NOT NULL,
+  `airline` varchar(45) NOT NULL,
+  `classification_of_flights` varchar(45) NOT NULL,
+  `departure_time` timestamp NOT NULL,
+  `arrival_time` timestamp NOT NULL,
+  `number_of_seats` int NOT NULL,
+  `seat_class` varchar(45) NOT NULL,
+  `freight_charge` int NOT NULL,
+  `start_point` varchar(45) NOT NULL,
+  `end_point` varchar(45) NOT NULL,
+  `administrator_ID` varchar(45) NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ip` varchar(45) NOT NULL,
+  PRIMARY KEY (`flight_code`),
+  KEY `administrator_ID` (`administrator_ID`),
+  CONSTRAINT `aviation_ibfk_1` FOREIGN KEY (`administrator_ID`) REFERENCES `thrdp_account` (`id`)
+);
+
+CREATE TABLE `reservation` (
+  `reservation_number` int NOT NULL AUTO_INCREMENT,
+  `user_ID` varchar(45) NOT NULL,
+  `reservation_name` varchar(45) NOT NULL,
+  `telephone_number` varchar(45) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `adults` int NOT NULL DEFAULT '0',
+  `teenagers` int NOT NULL DEFAULT '0',
+  `ticket_type` varchar(10) NOT NULL,
+  `total_payment` int NOT NULL,
+  `reservation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ip` varchar(45) NOT NULL,
+  PRIMARY KEY (`reservation_number`),
+  KEY `user_ID` (`user_ID`),
+  CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `thrdp_account` (`id`)
+);
+
+CREATE TABLE `one_way_reservation` (
+  `reservation_number` int NOT NULL,
+  `flight_code` int NOT NULL,
+  KEY `reservation_number` (`reservation_number`),
+  KEY `flight_code` (`flight_code`),
+  CONSTRAINT `one_way_reservation_ibfk_1` FOREIGN KEY (`reservation_number`) REFERENCES `reservation` (`reservation_number`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `one_way_reservation_ibfk_2` FOREIGN KEY (`flight_code`) REFERENCES `aviation` (`flight_code`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE `passenger` (
+  `passenger_number` int NOT NULL AUTO_INCREMENT,
+  `passenger_korean_name` varchar(45) NOT NULL,
+  `passenger_english_name` varchar(45) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `birth_date` date NOT NULL,
+  `reservation_number` int NOT NULL,
+  PRIMARY KEY (`passenger_number`),
+  KEY `reservation_number` (`reservation_number`),
+  CONSTRAINT `passenger_ibfk_1` FOREIGN KEY (`reservation_number`) REFERENCES `reservation` (`reservation_number`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+
+

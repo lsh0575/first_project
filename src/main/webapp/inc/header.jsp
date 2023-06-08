@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/css.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -38,7 +39,7 @@
 										<c:choose>
 											<%-- 일반사용자 메뉴 --%>
 											<c:when test="${sessionScope.account.role_id eq 0}">
-												<li><a href="#">항공예약조회</a></li>
+												<li><a href="${pageContext.request.contextPath}/air_mypage.air">항공예약조회</a></li>
 												<li><a href="#">호텔예약조회</a></li>
 												<li><a href="#">마음에 든 여행지</a></li>
 											</c:when>
@@ -51,8 +52,8 @@
 											<%-- 항공사업자 --%>
 											<c:when test="${sessionScope.account.role_id eq 2}">
 												<li class="dropdown">
-												<li><a href="#">상품관리</a></li>
-												<li><a href="#">예약 및 리뷰 관리</a></li>
+												<li><a href="${pageContext.request.contextPath}/air_avlist.air">상품관리</a></li>
+												<li><a href="${pageContext.request.contextPath}/air_relist.air">예약 및 리뷰 관리</a></li>
 											</c:when>
 											<%-- 항공사업자 --%>
 											<%-- 숙박사업자 --%>

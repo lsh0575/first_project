@@ -1,0 +1,37 @@
+
+    create table user_review(
+    tno int not null primary key auto_increment,
+    tname varchar(100) not null,
+    tpass varchar(100) not null,
+    tcategory int not null,
+    ttitle varchar(1000) not null,
+    tcontent text not null,
+    tscore int not null,
+    tupload_date timestamp default current_timestamp,
+    tcost varchar(100) not null,
+    tstart_date date not null, 
+    tend_date date not null,
+    thit int not null default 0,
+    tip varchar(100) not null);
+
+    create table category(
+    tcategory int not null primary key auto_increment,
+    tcategory_name varchar(255) not null);
+
+	insert into category values(1,'힐링'),(2,'액티비티'),(3,'맛집'),(4,'명소');
+
+    create table images(
+    tno int not null primary key auto_increment,
+    timages_1 varchar(1000),
+    timages_2 varchar(1000),
+    timages_3 varchar(1000));
+
+
+alter table user_review add foreign key(tcategory) 
+references category(tcategory) 
+on delete cascade on update cascade;
+
+alter table images add foreign key(tno) 
+references user_review(tno)
+on delete cascade on update cascade;
+
