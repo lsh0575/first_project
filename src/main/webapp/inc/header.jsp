@@ -38,7 +38,7 @@
 										<c:choose>
 											<%-- 일반사용자 메뉴 --%>
 											<c:when test="${sessionScope.account.role_id eq 0}">
-												<li><a href="#">항공예약조회</a></li>
+												<li><a href="${pageContext.request.contextPath}/air_mypage.air">항공예약조회</a></li>
 												<li><a href="#">호텔예약조회</a></li>
 												<li><a href="#">마음에 든 여행지</a></li>
 											</c:when>
@@ -51,8 +51,8 @@
 											<%-- 항공사업자 --%>
 											<c:when test="${sessionScope.account.role_id eq 2}">
 												<li class="dropdown">
-												<li><a href="#">상품관리</a></li>
-												<li><a href="#">예약 및 리뷰 관리</a></li>
+												<li><a href="${pageContext.request.contextPath}/air_avlist.air">상품관리</a></li>
+												<li><a href="${pageContext.request.contextPath}/air_relist.air">예약 및 리뷰 관리</a></li>
 											</c:when>
 											<%-- 항공사업자 --%>
 											<%-- 숙박사업자 --%>

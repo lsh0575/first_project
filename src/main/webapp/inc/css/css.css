@@ -150,8 +150,493 @@
   overflow:hidden;
   font-size:0;
   }
-  
-  @keyframes slide {
+
+/**********AIR-CSS*********/
+.panel:hover {
+	box-shadow: nane;
+}
+
+.panel {
+	border: none;
+	border-radius: 0;
+	-webkit-box-shadow: 0 0 0 rgb(255, 255, 255);
+}
+
+/* select {
+    width: 150px;
+    border: 1px solid #4e4e4e;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+select:focus {
+    border: 1px solid #5a5050;
+    box-sizing: border-box;
+    outline: 3px solid #F8E4FF;
+}
+ */
+.glyphicon {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 100%;
+	font-weight: bolder;
+	margin-bottom: 0.4%;
+	margin-top: 0.8%;
+}
+
+/* AIR-항공 및 예약 공통 */
+#airMain { /* 어드민_전체 공통 페이지 */
+	border: none;
+	border-radius: 0;
+	-webkit-box-shadow: 0 0 0 rgb(255, 255, 255);
+	margin-top: 12%;
+}
+
+#airMain .airP1 { /* 어드민_항공 리스트 페이지 */
+	width: 76%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#airSub { /* 어드민_항공 리스트 페이지 */
+	border: none;
+	border-radius: 0;
+	-webkit-box-shadow: 0 0 0 rgb(255, 255, 255);
+	margin-top: 3%;
+}
+
+#airSub .airP1 { /* 어드민_항공 리스트 페이지 */
+	width: 76%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+/* AIR - 항공 리스트 페이지 */
+#airSub .airB1 { /* 버튼 */
+	margin-top: 2%;
+}
+
+/* AIR - 항공 특정 데이터 페이지 */
+#airMain .airTop { /* 데이터 상위 표 */
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	margin-bottom: 0;
+}
+
+#airMain .airCenter { /* 데이터 가운데 표 */
+	border-bottom: 1px solid;
+	margin-bottom: 0;
+}
+
+#airMain .airBottom { /* 데이터 하위 표 */
+	border-bottom: 1px solid;
+}
+
+#airMain2 { /* 메인 페이지 */
+	border: none;
+	border-radius: 0;
+	-webkit-box-shadow: 0 0 0 rgb(255, 255, 255);
+}
+
+#airMain2 .airplane {
+	position: relative;
+	overflow: hidden;
+}
+
+#airMain2 .air_box {
+	position: absolute;
+	bottom: 0;
+	width: 88%;
+	height: 15%;
+	margin: 0 5%;
+	padding: 3%;
+	background-color: #34495e;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+
+#airMain2 .airFrom {
+	width: 100%;
+	height: 100%;
+	margin-top: -15px;
+}
+
+#airMain2 .airFrom_1 { /* 메인_항공권 종류 */
+	width: 12%;
+	height: 52px;
+	float: left;
+	border-top-left-radius: 7px;
+	font-size: 16px;
+	padding-left: 1%;
+	font-weight: bolder;
+}
+
+#airMain2 .airFrom_2 { /* 메인_출발지, 도착지, 출국일, 귀국일, 성인수, 청소년수 */
+	width: 12%;
+	height: 52px;
+	float: left;
+	margin-left: 15px;
+	font-size: 16px;
+	padding-left: 1%;
+	font-weight: bolder;
+}
+
+#airMain2 .airFrom_3 { /* 메인_검색 버튼 */
+	border: 0;
+	width: 8%;
+	height: 52px;
+	float: right;
+	border-top-right-radius: 7px;
+	background-color: #7d97bb;
+	font-size: 16px;
+	font-weight: bolder;
+}
+
+#airMain2 input::placeholder {
+	font-size: 16px;
+	color: #333333;
+}
+
+#airMain .airLeft { /* 왼쪽 */
+	width: 13%;
+	border: 1px solid darkgray;
+	margin-left: 11%;
+	margin-right: 0;
+	padding: 0;
+}
+
+#airMain .airL1 { /* 유저_항공 리스트 페이지 */
+	width: 100%;
+	margin: 0;
+}
+
+#airMain .menu-toggle {
+	cursor: pointer;
+}
+
+#airMain .menu-icon {
+	display: block;
+	background-color: #ececec;
+	width: 100%;
+	padding: 5% 0 5% 8%;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#airMain .menu {
+	display: block;
+}
+
+#airMain .menu>ul {
+	padding-top: 4%;
+	padding-left: 15%;
+	list-style-type: none;
+}
+
+#airMain .b1 {
+	border: 0;
+	border-radius: 6px;
+	width: 50%;
+    margin : 0 25%;
+    padding : 0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;	
+}
+
+#airMain .airP1>hr {
+    border: 1px solid #afafaf;
+	margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#airMain .airList {
+	display :block;
+	border: 1px solid #afafaf;
+	margin-bottom: 2%
+}
+
+#airMain .airList>ul {
+	list-style-type : none;
+	margin: 1%;
+}
+
+#airMain .airList>ul>li>p {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#airMain .air {
+    width: 15%;
+    margin : 0;
+    padding : 0;
+    float : left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+#airMain .st1 {
+    width: 5%;
+    margin: 1% 0;
+    padding : 0;
+    float : left;
+    color : #7979d9;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+#airMain .st2 {
+    width: 5%;
+    margin: 1% 0;
+    padding : 0;
+    float : left;
+    color : #7979d9;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+#airMain .time {
+    width: 20%;
+    margin : 0;
+    padding : 0;
+    float : left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+#airMain .b2 {
+    width: 50%;
+    margin: 5px 0px 17px 87%;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+#airMain .line {
+    width: 100%;
+    overflow: hidden;
+}
+
+#airMain .LairBox {
+	    width: 17%;
+    height: 75px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    float: left;
+    background-color: #34495e;
+}
+
+#airMain .airS4 { /* 항공스케줄 */
+	font-size: 20px;
+    margin-top: 27px;
+    margin-bottom: 5px;
+    border: 0;
+    padding: 0;
+}
+ 
+#airMain .airS5 { /* 항공스케줄 */
+	font-size: 20px;
+    margin-top: 90px;
+    margin-bottom: 5px;
+    border: 0;
+    padding: 0;
+} 
+
+#airMain .air4 {
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+}
+#airMain .airList2 {
+	display :block;
+	border: 1px solid #afafaf;
+	margin-bottom: 2%;
+	height: 75px;
+}
+#airMain .airList3-1 {
+	display :block;
+	border: 1px solid #afafaf;
+	margin-top : 2%;
+	margin-bottom: 0%;
+	height: 75px;
+}
+#airMain .airList3-2 {
+	display :block;
+	border: 1px solid #afafaf;
+	margin-top : 2%;
+	margin-bottom: 2%;
+	height: 75px;
+}
+#airMain .airList2>ul {
+	list-style-type : none;
+	margin: 1%;
+}
+
+#airMain .airList3>ul {
+	list-style-type : none;
+}
+
+#airMain .airList3-1>ul {
+	list-style-type : none;
+}
+
+#airMain .airList3-2>ul {
+	list-style-type : none;
+}
+
+#airMain .airList2>ul>li>p {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+#airMain .air2 {
+    width: 10%;
+    margin : 0 7%;
+    padding : 0;
+    float : left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;list-style-type: none;
+}
+
+#airMain .st2-1 {
+    width: 5%;
+    margin: 1% 0;
+    padding : 0;
+    float : left;
+    color : #7979d9;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;list-style-type: none;
+}
+
+#airMain .st2-2 {
+    width: 5%;
+    margin: 1% 0;
+    padding : 0;
+    float : left;
+    color : #7979d9;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;list-style-type: none;
+}
+
+#airMain .time2 {
+    width: 20%;
+    margin : 0;
+    padding : 0;
+    float : left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;list-style-type: none;
+}
+
+#airMain .air3 {
+    width: 7%;
+    margin : 6px 7%;
+    padding : 0;
+    float : left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;list-style-type: none;
+}
+
+#airMain .st3-1 {
+    width: 5%;
+    margin: 2% 0;
+    padding : 0;
+    float : left;
+    color : #7979d9;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;list-style-type: none;
+}
+
+#airMain .st3-2 {
+    width: 5%;
+    margin: 2% 0;
+    padding : 0;
+    float : left;
+    color : #7979d9;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    list-style-type: none;
+}
+
+#airMain .time3 {
+    width: 16%;
+    margin : 6px 0 0 0;
+    padding : 0;
+    float : left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    list-style-type: none;
+}
+#airMain .no3 {
+    width: 10%;
+    margin : 6px 0 0 0;
+    padding : 0;
+    float : left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    list-style-type: none;
+}
+
+#airMain .bt3 {
+width: 10%;
+    height: 30px;
+    margin: 2% 0;
+    text-align:center;
+    padding: 4px;
+    float: left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    list-style-type: none;
+    background-color: #34495e;
+}
+
+#airMain .bt3 a:focus, a:hover {
+	text-decoration: underline;
+}
+
+#airMain .bt3 a:focus {
+	text-decoration: underline;
+}
+
+
+.airTb td {
+ width: 20%;
+}
+
+.airR0 input[type=checkbox], input[type=radio] {
+	margin: 7px 7px 7px 55px;
+}
+
+.airthg {
+	width: 10%;
+}
+
+td.airtdg {
+    width: 10%;
+}
+
+.airgg {
+	width:  90%;
+}
+/*************************************************************/
+@keyframes slide {
     0% {
       opacity: 0;
       transform: translateY(70%);
