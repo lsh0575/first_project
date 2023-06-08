@@ -1,18 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 	.boximg img{
 	    width:100%;
@@ -56,8 +43,6 @@
     min-height: 850px;
 }
 </style>
-</head>
-<body>	
 	<div class="topgap  container">	
 		<div class="panel panel-info ">
 			<div class="col-sm-4 sidesize">
@@ -144,7 +129,7 @@
 										/* 	<div class="col-sm-6 imgbox" >
 											<img src="${pageContext.request.contextPath}/hotel/upload${dto.himg.img1}" alt="${dto.hprod.hname}" data-toggle="modal" data-target="#myModal${status.count}">
 											</div>  이미지박스        */		
-										var mainimg = $("<img>").attr("src","${pageContext.request.contextPath}/hotel/upload/"+json[i].himg.img1)//혹시 모르니 이미지앞 / 제거버전 확인
+										var mainimg = $("<img>").attr("src","${pageContext.request.contextPath}/upload/hotel/"+json[i].himg.img1)//혹시 모르니 이미지앞 / 제거버전 확인
 														.attr("alt",json[i].hprod.hname).attr("data-toggle","modal").attr("data-target","#myModal"+i);																									
 										var divimgbox = $("<div>").attr("class","col-sm-6 imgbox");
 											divimgbox.append(mainimg);
@@ -182,7 +167,7 @@
 										var nation = $("<p>").append("지역 : " + json[i].hprod.hnation);
 										var type = $("<p>").append("유형 : " + json[i].hprod.htype);
 										var price = $("<p>").append("가격 : " + json[i].hprod.hprice);
-										var pimg = $("<img>").attr("src","${pageContext.request.contextPath}/hotel/upload/"+json[i].himg.img1);
+										var pimg = $("<img>").attr("src","${pageContext.request.contextPath}/upload/hotel/"+json[i].himg.img1);
 											pimg.attr("alt", json[i].hprod.hname);
 											pimg = $("<p>").append(pimg);
 											pimg.attr("class","boximg");
@@ -245,6 +230,4 @@
 								<a href = "${pageContext.request.contextPath}/user_hotellist.hotel" class ="btn btn-success form-control" title = "모든상품 보기" > 더많은 상품 보기! </a>
 							</div>
 		</div> <!-- class="panel-heading" -->
-		</div> <!-- class="topgap  container" -->
-</body>
-</html>
+	</div> <!-- class="topgap  container" -->

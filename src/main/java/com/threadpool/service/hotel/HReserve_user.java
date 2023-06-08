@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.threadpool.dao.HotelDao;
+import com.threadpool.dto.AccountDto;
 import com.threadpool.dto.hotel.HotelDtoReserve;
 
 public class HReserve_user implements HotelService {
@@ -19,9 +20,9 @@ public class HReserve_user implements HotelService {
 		PrintWriter out = response.getWriter();
 		HotelDao dao = new HotelDao();
 		HotelDtoReserve dto = new HotelDtoReserve();
-	  //AccountDto user = (AccountDto) request.getSession().getAttribute("account"); //나중에 세션으로 유저 값을 받는다면 이걸루
+		AccountDto user = (AccountDto) request.getSession().getAttribute("account");
 		dto.setHno(Integer.parseInt(request.getParameter("hno")));
-		dto.setId(request.getParameter("id"));
+		dto.setId(user.getId());
 		
 		String msg = "관리자에게 문의바랍니다.";
 

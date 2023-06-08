@@ -3,6 +3,7 @@ package com.threadpool.dto.hotel;
 import java.util.List;
 
 import com.threadpool.dao.HotelDao;
+import com.threadpool.dto.AccountDto;
 
 public class HotelPaging_user { // 재활용 가능
 
@@ -16,7 +17,7 @@ public class HotelPaging_user { // 재활용 가능
 		List<HotelDtoReserve> list10;
 		int pstartno;
 		public HotelPaging_user() { super(); }
-		public HotelPaging_user(int pstartno) {
+		public HotelPaging_user(int pstartno , AccountDto dto) {
 			HotelDao dao = new HotelDao();
 			//#1전체글		:  int pageTotal  → 256
 			this.pageTotal = dao.listCnt();
@@ -38,7 +39,7 @@ public class HotelPaging_user { // 재활용 가능
 			if( this.bottomPageAll < this.bottomEnd) { this.bottomEnd = this.bottomPageAll; };
 			/////////////////////////////////////////////////////////////////////////////////
 			//#8 10개의 리스트	   :	List<JSTLItem> List10 → limit ?,10 / 0,10 / 10,10
-			this.list10 = dao.ReserveListpage(pstartno);
+			this.list10 = dao.ReserveListpage(pstartno, dto);
 			//#9 페이징시작번호 : 	int pstartno	
 			this.pstartno = pstartno;
 		}

@@ -1,5 +1,7 @@
 package com.threadpool.dto.hotel;
 
+import com.threadpool.dto.AccountDto;
+
 public class HotelDto {
 	private HotelDtoProd hprod;
 	private HotelDtoOption hoption;

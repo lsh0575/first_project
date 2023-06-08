@@ -8,9 +8,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/css.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/inc/css/css.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -58,8 +58,7 @@
 											<%-- 항공사업자 --%>
 											<%-- 숙박사업자 --%>
 											<c:when test="${sessionScope.account.role_id eq 3}">
-												<li><a href="#">상품관리</a></li>
-												<li><a href="#">예약 및 리뷰 관리</a></li>
+												<li><a href="${pageContext.request.contextPath}/manager_list.hotel">상품관리</a></li>
 											</c:when>
 											<%-- 숙박사업자 --%>
 											<%-- 여행사업자 --%>

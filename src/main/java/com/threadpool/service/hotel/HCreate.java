@@ -27,7 +27,8 @@ public class HCreate implements HotelService {
 		HotelDtoImg	dtoi = new HotelDtoImg();
 		String msg = "관리자에게 문의바랍니다.";
 		// 경로 설정
-		String path = "/hotel/upload";
+		String path = "/upload/hotel/";
+		path = request.getServletContext().getRealPath(path);
 		// 파일 업로드
 		try {
 		MultipartRequest multi = new MultipartRequest(request, path, 1024*1024*5,"UTF-8"  ,new DefaultFileRenamePolicy());
@@ -46,8 +47,6 @@ public class HCreate implements HotelService {
 		dtop.setCheckout(multi.getParameter("checkout"));
 		dtop.setHnation( multi.getParameter("hnation"));
 		
-		System.out.println(".............." + multi.getParameter("smoke"));  // 체크시    on
-		System.out.println(".............." + multi.getParameter("ref"));    // 체크안하면 null
 		
 		dtoo.setSmoke((multi.getParameter("smoke") == null )? false : true);   //뷰단에서 체크박스 유무에 따라 true or false 로 값을 받고싶은데..multi.getparameter 
 		dtoo.setRef(  multi.getParameter("ref") == null? false : true);

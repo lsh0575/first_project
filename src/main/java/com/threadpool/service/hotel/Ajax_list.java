@@ -30,8 +30,6 @@ public class Ajax_list implements HotelService {
 		int pstartno = request.getParameter("pstartno") != null? Integer.parseInt(request.getParameter("pstartno")) : 0;
 		HotelDao dao = new HotelDao();
 		response.getWriter().print(new Gson().toJson(dao.listAjax(pstartno,where)));
-		System.out.println(where);
-		System.out.println(new Gson().toJson(dao.listAjax(pstartno,where)));
 	}
 
 }

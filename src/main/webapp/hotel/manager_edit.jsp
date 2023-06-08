@@ -1,21 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-
+<%@include file="/inc/header.jsp" %>
 <style>
 .hotelcarousel{
 	height: 350px;
@@ -30,10 +15,7 @@
 }
 </style>
 
-
-</head>
-<body>
-	<div class="container panel panel-info ">
+	<div class="container body-top ">
 		<br>
 		<div class="hotelmain">
 			<div class="col-sm-3"></div>
@@ -52,7 +34,7 @@
 					<c:forEach var="imgs" items="${imglist}" varStatus="status">
 						<div
 							class="hotelimg item <c:if test="${status.first}"> active </c:if> ">
-							<img src="hotel/upload/${imgs}" alt="${dto.hprod.hcontent}"
+							<img src="${pageContext.request.contextPath}/upload/hotel/${imgs}" alt="${dto.hprod.hcontent}"
 								class="hotelimg">
 							<div class="carousel-caption">
 								<h3>${dto.hprod.hname}</h3>
@@ -197,5 +179,4 @@
 			</form>
 		</div>
 	</div>
-</body> 
-</html>
+<%@include file="/inc/footer.jsp" %>

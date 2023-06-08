@@ -1,0 +1,59 @@
+
+ create table hotel_prod(
+     hno int not null auto_increment primary key,
+     hname varchar(1000) not null,
+     htype varchar(100) not null,
+     hprice int not null,
+     hgrade int not null,
+     hbed varchar(100) not null,
+     hcnt int not null,
+     hcontent text not null,
+     hfix date not null default(current_timestamp),
+     hip varchar(20) not null,
+     checkin date not null,
+     checkout date not null,
+     hnation varchar(100) not null);
+
+ create table hotel_option(
+     hno int not null primary key,
+     smoke boolean not null default 0,
+     ref boolean not null default 0,
+     wifi boolean not null default 0,
+     tv boolean not null default 0,
+     tub boolean not null default 0,
+     airc boolean not null default 0,
+     wash boolean not null default 0);
+
+ create table hotel_img(
+     hno int not null primary key,
+     img1 varchar(500) default 'no.jpg',
+     img2 varchar(500) default 'no.jpg',
+     img3 varchar(500) default 'no.jpg',
+     img4 varchar(500) default 'no.jpg',
+     ifix date not null default(current_timestamp)
+     );
+
+ create table reserve(
+     hno int not null primary key,
+     id varchar(40) not null,
+     rip varchar(15) not null,
+     reservetime date not null default(current_timestamp)
+     );
+
+alter table hotel_option add foreign key(hno) references hotel_prod(hno) on delete cascade;
+
+alter table hotel_img add foreign key(hno) references hotel_prod(hno) on delete cascade;
+
+alter table reserve add foreign key(hno) references hotel_prod(hno) on delete cascade;
+
+alter table reserve add foreign key(id) references thrdp_account(id) on delete cascade;
+
+
+
+
+
+
+
+
+
+

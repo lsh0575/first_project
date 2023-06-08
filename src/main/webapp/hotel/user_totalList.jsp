@@ -1,23 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<%@include file="/inc/header.jsp" %>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div class="container panel panel-info">
+	<div class="container body-top">
 			<table class="table table-striped">
-				<caption>나의 예약 현황</caption>	
+				<caption>모든 상품 목록</caption>	
 					<thead>
 						<tr>
 							<th scope="col">상품번호</th>
@@ -69,7 +56,6 @@
 				</c:if>
 			</ul>
 			</div>
-			<p class="text-right"><a href="${pageContext.request.contextPath}/user_view.hotel" class = "btn btn-danger">예약하러 가기~</a></p>
+			<p class="text-right"><a href="${pageContext.request.contextPath}" class = "btn btn-danger">메인으로 돌아가기</a></p>
 	</div>
-</body>
-</html>
+<%@include file="/inc/footer.jsp" %>

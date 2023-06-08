@@ -46,11 +46,11 @@ public class FrontController_Hotel extends HttpServlet {
 			}
 		else if(path.equals("/user_reserve.hotel")) { //유저의 예약하기
 			service = new HReserve_user(); service.exec(request, response); 
-			out.println("<script>location.href='user_view.hotel';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"';</script>");
 			}
 		else if(path.equals("/user_delete.hotel")) { //유저의 예약취소
 			service = new HDelete_user(); service.exec(request, response); 
-			out.println("<script>location.href='user_view.hotel';</script>");
+			out.println("<script>location.href='"+request.getContextPath()+"';</script>");
 			}
 		else if(path.equals("/user_deleteView.hotel")) { //유저의 상세보기 (삭제폼)
 			service = new HDetail_user(); service.exec(request, response); 
@@ -58,7 +58,7 @@ public class FrontController_Hotel extends HttpServlet {
 			}
 		if(path.equals("/user_reservelist.hotel")) { //유저의 마이페이지 예약조회
 			service = new HList_user(); service.exec(request, response); 
-			request.getRequestDispatcher("/hotel/user_list.jsp").forward(request, response);
+			//내부에서 경로 태움.
 			}
 		if(path.equals("/user_hotellist.hotel")) { //유저의 상품전체보기
 			service = new HList_user2(); service.exec(request, response); 

@@ -1,21 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div class="container panel panel-info">
+<%@ include file="/inc/header.jsp" %>
+	<div class="container body-top">
 			<table class="table table-striped">
 				<caption>호텔 상품 목록</caption>	
 					<thead>
@@ -71,5 +57,4 @@
 			</div>
 			<p class="text-right"><a href="${pageContext.request.contextPath}/hotel/manager_create.jsp" class = "btn btn-danger">상품 등록</a></p>
 	</div>
-</body>
-</html>
+<%@ include file="/inc/footer.jsp" %>

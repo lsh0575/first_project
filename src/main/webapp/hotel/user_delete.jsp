@@ -1,18 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<%@ include file="/inc/header.jsp" %>
 <style>
 .hotelcarousel{
 	height: 350px;
@@ -26,9 +14,8 @@
 	align-content: center;
 }
 </style>
-</head>
-<body>
-	<div class="container panel panel-info ">
+
+	<div class="container body-top ">
 		<br>
 		<div class="hotelmain">
 			<div class="col-sm-3"></div>
@@ -47,7 +34,7 @@
 					<c:forEach var="imgs" items="${imglist}" varStatus="status">
 						<div
 							class="hotelimg item <c:if test="${status.first}"> active </c:if> ">
-							<img src="hotel/upload/${imgs}" alt="${dto.hprod.hcontent}"
+							<img src="${pageContext.request.contextPath}/upload/hotel/${imgs}" alt="${dto.hprod.hcontent}"
 								class="hotelimg">
 							<div class="carousel-caption">
 							</div>
@@ -145,15 +132,12 @@
 				</div>
 				<!-- 네번째줄 -->
 				<div class="col-sm-12">
-				<label for="id">아이디를 입력해주세요</label>
-				<input type="text" id="id" name="id" >
 				</div>
 			<div class="col-sm-12 text-right">
 				<input type="submit" value="삭제하기" class="btn btn-info" style="color:white; background-color:#f4511e" >
-				<a href="${pageContext.request.contextPath}/user_view.hotel" class="btn btn-info" title="목록보기 링크입니다.">목록보기</a>
+				<a href="${pageContext.request.contextPath}" class="btn btn-info" title="목록보기 링크입니다.">메인으로 돌아가기</a>
 			</div>
 			</form>
 		</div>
 	</div>
-</body> 
-</html>
+<%@ include file="/inc/footer.jsp" %>

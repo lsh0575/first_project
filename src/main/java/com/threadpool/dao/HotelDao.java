@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.threadpool.dbmanager.DBManager;
-import com.threadpool.dto.hotel.AccountDto;
+import com.threadpool.dto.AccountDto;
 import com.threadpool.dto.hotel.HotelDto;
 import com.threadpool.dto.hotel.HotelDtoImg;
 import com.threadpool.dto.hotel.HotelDtoOption;
@@ -104,7 +104,7 @@ public class HotelDao {
 		return list;
 	}
 	
-	public List<HotelDtoReserve> ReserveListpage(int startno){
+	public List<HotelDtoReserve> ReserveListpage(int startno , AccountDto dto){
 		List<HotelDtoReserve> list = new ArrayList<>();
 		
 		DBManager db = new DBManager();
@@ -113,7 +113,7 @@ public class HotelDao {
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "wonsu");
+			pstmt.setString(1, dto.getId());
 			pstmt.setInt(2, startno);
 			rset = pstmt.executeQuery(); //표
 			while(rset.next()) {
