@@ -1,4 +1,4 @@
-package com.threadpool.service;
+package com.threadpool.service.travel;
 
 import java.util.List;
 

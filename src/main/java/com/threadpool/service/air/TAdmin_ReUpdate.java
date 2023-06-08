@@ -7,8 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.threadpool.dto.air.*;
-import com.threadpool.dao.air.*;
+import com.threadpool.dao.AdminReservationDao;
+import com.threadpool.dto.air.ReservationDto;
 
 public class TAdmin_ReUpdate implements TAction {
 

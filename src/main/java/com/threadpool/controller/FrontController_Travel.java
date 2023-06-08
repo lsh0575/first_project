@@ -10,24 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.threadpool.dto.AccountDto;
-import com.threadpool.service.TDelete;
-import com.threadpool.service.TDeleteAdmin;
-import com.threadpool.service.TDetail;
-import com.threadpool.service.TEdit;
-import com.threadpool.service.TEditView;
-import com.threadpool.service.TMain;
-import com.threadpool.service.TPagingServiceImpl;
-import com.threadpool.service.TWrite;
-import com.threadpool.service.TravelService;
+import com.threadpool.service.travel.TDelete;
+import com.threadpool.service.travel.TDeleteAdmin;
+import com.threadpool.service.travel.TDetail;
+import com.threadpool.service.travel.TEdit;
+import com.threadpool.service.travel.TEditView;
+import com.threadpool.service.travel.TMain;
+import com.threadpool.service.travel.TPagingServiceImpl;
+import com.threadpool.service.travel.TWrite;
+import com.threadpool.service.travel.TravelService;
 
 /**
  * Servlet implementation class TravelController
  */
 @WebServlet("*.travel")
-public class TravelController extends HttpServlet {
+public class FrontController_Travel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public TravelController() { super(); }
+	public FrontController_Travel() { super(); }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

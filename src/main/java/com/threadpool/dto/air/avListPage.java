@@ -2,7 +2,7 @@ package com.threadpool.dto.air;
 
 import java.util.List;
 
-import com.threadpool.dao.air.AdminAviationDao;
+import com.threadpool.dao.AdminAviationDao;
 
 public class avListPage {
 	private int listTotal;			//전체 갯수

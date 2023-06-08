@@ -1,4 +1,4 @@
-package com.threadpool.dao.air;
+package com.threadpool.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

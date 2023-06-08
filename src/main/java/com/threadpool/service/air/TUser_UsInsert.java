@@ -8,9 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.threadpool.dao.air.One_way_reservationDao;
-import com.threadpool.dao.air.PassengerDao;
-import com.threadpool.dao.air.UserReservationDao;
+import com.threadpool.dao.One_way_reservationDao;
+import com.threadpool.dao.PassengerDao;
+import com.threadpool.dao.UserReservationDao;
 import com.threadpool.dto.AccountDto;
 import com.threadpool.dto.air.PassengerDto;
 import com.threadpool.dto.air.ReservationDto;

@@ -1,4 +1,4 @@
-package com.threadpool.service;
+package com.threadpool.service.travel;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,8 +21,7 @@ public class TWrite implements TravelService {
 //		}
 		// 1. 경로 설정
 		String path = "/upload";
-		
-		System.out.println("경로 : " + path);
+		path = request.getServletContext().getRealPath(path);
 		
 		MultipartRequest multi = 
 				new MultipartRequest(request, path, 1024*1024*5, "UTF-8",
@@ -60,7 +59,7 @@ public class TWrite implements TravelService {
 		try {
 			String file = multi.getFilesystemName("timages_1");
 			if(file==null) {
-				System.out.println("이미지가 업로드 되지 않았습니다."); dto.setTimages_1("default.jpg");
+				dto.setTimages_1("default.jpg");
 			}else {dto.setTimages_1(file);}
 			file = multi.getFilesystemName("timages_2");
 			dto.setTimages_2(file);
