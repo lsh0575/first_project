@@ -3,7 +3,6 @@ package com.threadpool.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +26,7 @@ import com.threadpool.service.account.AccountUserList;
 import com.threadpool.service.account.externalAuth.KakaoLoginAuth;
 import com.threadpool.service.account.externalAuth.NaverLoginAuth;
 
-@WebServlet("*.acc")
+
 public class FrontController_Account extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

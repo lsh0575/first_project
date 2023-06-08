@@ -3,15 +3,19 @@ package com.threadpool.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.threadpool.service.message.*;
+import com.threadpool.service.message.ThrdpMessageAction;
+import com.threadpool.service.message.ThrdpMessageDelete;
+import com.threadpool.service.message.ThrdpMessageIDCheckAjax;
+import com.threadpool.service.message.ThrdpMessageIDListAjax;
+import com.threadpool.service.message.ThrdpMessagePagingAjax;
+import com.threadpool.service.message.ThrdpMessageRead;
+import com.threadpool.service.message.ThrdpMessageSend;
 
 
-@WebServlet("*.msg")
 public class FrontController_Message extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

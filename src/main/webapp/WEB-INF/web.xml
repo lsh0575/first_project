@@ -9,6 +9,55 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+  	<servlet-name>Account</servlet-name>
+  	<servlet-class>com.threadpool.controller.FrontController_account</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>Account</servlet-name>
+	  <url-pattern>*.acc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Air</servlet-name>
+  	<servlet-class>com.threadpool.controller.FrontController_air</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>Air</servlet-name>
+	  <url-pattern>*.air</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Hotel</servlet-name>
+  	<servlet-class>com.threadpool.controller.FrontController_Hotel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>Hotel</servlet-name>
+	  <url-pattern>*.hotel</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Message</servlet-name>
+  	<servlet-class>com.threadpool.controller.FrontController_Message</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>Message</servlet-name>
+	  <url-pattern>*.msg</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Travel</servlet-name>
+  	<servlet-class>com.threadpool.controller.FrontController_Travel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>Travel</servlet-name>
+	  <url-pattern>*.travel</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Main</servlet-name>
+  	<servlet-class>com.threadpool.controller.Main</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>Main</servlet-name>
+	  <url-pattern>/Main</url-pattern>
+  </servlet-mapping>
+  
   <description>MySQL connect</description>
   <resource-ref>
       <description>DB Connection</description>

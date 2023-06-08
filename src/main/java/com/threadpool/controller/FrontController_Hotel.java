@@ -4,14 +4,26 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.threadpool.service.hotel.*;
+import com.threadpool.service.hotel.Ajax_list;
+import com.threadpool.service.hotel.HCreate;
+import com.threadpool.service.hotel.HDelete;
+import com.threadpool.service.hotel.HDelete_user;
+import com.threadpool.service.hotel.HDetail;
+import com.threadpool.service.hotel.HDetail_user;
+import com.threadpool.service.hotel.HEdit;
+import com.threadpool.service.hotel.HEditView;
+import com.threadpool.service.hotel.HList;
+import com.threadpool.service.hotel.HList_user;
+import com.threadpool.service.hotel.HList_user2;
+import com.threadpool.service.hotel.HReserve_user;
+import com.threadpool.service.hotel.HVeiw_user;
+import com.threadpool.service.hotel.HotelService;
 
-@WebServlet("*.hotel")
+
 public class FrontController_Hotel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

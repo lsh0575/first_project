@@ -3,13 +3,31 @@ package com.threadpool.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.threadpool.service.air.*;
 
-@WebServlet("*.air")
+import com.threadpool.service.air.TAction;
+import com.threadpool.service.air.TAdmin_AvDelete;
+import com.threadpool.service.air.TAdmin_AvDetail;
+import com.threadpool.service.air.TAdmin_AvInsert;
+import com.threadpool.service.air.TAdmin_AvList;
+import com.threadpool.service.air.TAdmin_AvUpdate;
+import com.threadpool.service.air.TAdmin_ReDetail;
+import com.threadpool.service.air.TAdmin_ReList;
+import com.threadpool.service.air.TAdmin_ReUpdate;
+import com.threadpool.service.air.TAdmin_Redelete;
+import com.threadpool.service.air.TUser_End_PointJoin;
+import com.threadpool.service.air.TUser_MyPage;
+import com.threadpool.service.air.TUser_Start_PointJoin;
+import com.threadpool.service.air.TUser_UsDelete;
+import com.threadpool.service.air.TUser_UsDetail;
+import com.threadpool.service.air.TUser_UsInsert;
+import com.threadpool.service.air.TUser_UsInsert_View;
+import com.threadpool.service.air.TUser_UsList;
+import com.threadpool.service.air.TUser_UsListAjax;
+import com.threadpool.service.air.TUser_UsUpdate;
+
 public class FrontController_air extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

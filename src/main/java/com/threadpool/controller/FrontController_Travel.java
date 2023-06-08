@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,10 +19,7 @@ import com.threadpool.service.travel.TPagingServiceImpl;
 import com.threadpool.service.travel.TWrite;
 import com.threadpool.service.travel.TravelService;
 
-/**
- * Servlet implementation class TravelController
- */
-@WebServlet("*.travel")
+
 public class FrontController_Travel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
