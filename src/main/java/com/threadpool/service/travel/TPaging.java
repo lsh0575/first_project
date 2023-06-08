@@ -25,7 +25,7 @@ public class TPaging {
 		this.bottomPageLimit = 10;
 		this.bottomCurrent = (int)Math.floor(pstartno/(float)this.onePageLimit)+1;
 		this.bottomStart = (int)(Math.floor((this.bottomCurrent-1)/this.bottomPageLimit)*10+1);
-		this.bottomEnd = this.bottomStart + this.bottomPageLimit - 1;
+		this.bottomEnd = (this.bottomStart + this.bottomPageLimit - 1)<bottomPageAll?(this.bottomStart + this.bottomPageLimit - 1):bottomPageAll;
 		this.list10 = dao.listpage(pstartno);
 		this.pstartno = pstartno;
 	}
