@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
 import com.threadpool.dao.air.One_way_reservationDao;
 import com.threadpool.dao.air.PassengerDao;
 import com.threadpool.dao.air.UserReservationDao;
@@ -64,12 +63,6 @@ public class TUser_UsInsert implements TAction {
 		}
 
 		int one = new One_way_reservationDao().insert(values);
-
-		if (one > 0) {
-			System.out.println("편도-왕복 테이블 삽입 성공");
-		} else {
-			System.out.println("편도-왕복 테이블 삽입 실패");
-		}
 
 		String[] passenger_korean_name = request.getParameterValues("passenger_korean_name");
 		String[] passenger_english_name = request.getParameterValues("passenger_english_name");

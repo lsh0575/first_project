@@ -123,8 +123,7 @@ public class AviationDto {
 	public void setAr(Timestamp ar) { this.ar = ar; }
 	public Timestamp getCr() { return cr; }
 	public void setCr(Timestamp cr) { this.cr = cr; }
-
-	
+	public AccountDto getAccDto() { return accDto; } public void setAccDto(AccountDto accDto) { this.accDto = accDto; } 
 	@Override public String toString() {
 	    return "{\r\n"
 	    		+ " \"flight_code\":\"" + flight_code + "\", \r\n"

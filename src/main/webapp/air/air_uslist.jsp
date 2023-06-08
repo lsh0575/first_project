@@ -1,10 +1,3 @@
-<%@page import="java.util.Comparator"%>
-<%@page import="java.util.Collections"%>
-<%@page import="com.mysql.cj.x.protobuf.MysqlxCrud.Collection"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.threadpool.dto.air.AviationDto"%>
-<%@page import="java.util.List"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.Param"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -155,7 +148,7 @@
 	
 $(document).ready(function() {
 	/* 파싱 */
-   var list = <%=request.getAttribute("list")%>; // dao.read(where)
+   var list = ${requestScope.list}; // dao.read(where)
    var airData = { // 출국 입국 비교하여 담을 데이터
     departure: [],
     entrance: []

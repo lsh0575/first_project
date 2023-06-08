@@ -33,13 +33,13 @@ public class TUser_UsList implements TAction {
 		String order = " order by freight_charge asc ";
 
         if (ticket_type.equals("왕복")) { // 왕복
-            where += "where (aviation.departure_time > '" + start_date + "' and aviation.departure_time < '" + str_date + "') or " // 출국일 날짜
-                    + "(aviation.departure_time > '" + end_date + "' and aviation.departure_time < '" + ed_date + "') and " // 귀국일 날짜
+            where += "where (aviation.departure_time >= '" + start_date + "' and aviation.departure_time <= '" + str_date + "') or " // 출국일 날짜
+                    + "(aviation.departure_time >= '" + end_date + "' and aviation.departure_time <= '" + ed_date + "') and " // 귀국일 날짜
                     + "(aviation.start_point = '" + start_point + "' and aviation.end_point = '" + end_point + "' or " // 출발지 -> 도착지
                     + "aviation.start_point = '" + end_point + "' and aviation.end_point = '" + start_point + "') "
                     		+ group + order;
             } else { // 편도
-            where += "where (aviation.departure_time > '" + start_date + "' and aviation.departure_time < '" + str_date + "') and " // 출국일 날짜
+            where += "where (aviation.departure_time >= '" + start_date + "' and aviation.departure_time <= '" + str_date + "') and " // 출국일 날짜
                     + "(aviation.start_point = '" + start_point + "' and aviation.end_point = '" + end_point + "' ) "
                     		+ group + order;
         }

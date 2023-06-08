@@ -31,7 +31,6 @@ public class PassengerDao {
 			pstmt.setString(4, dto.getBirth_date());
 			pstmt.setInt(5, dto.getReservation_number());
 			result = pstmt.executeUpdate();
-			System.out.println(":::" + result);
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {

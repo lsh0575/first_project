@@ -32,13 +32,6 @@ public class TAdmin_AvList implements TAction {
 				    + "departure_time between '" + start_date + "' and '" + end_date + "'";
 		}
 		
-		System.out.println(flight);
-		System.out.println(airline);
-		System.out.println(classification_of_flights);
-		System.out.println(start_date);
-		System.out.println(end_date);
-		System.out.println(pageStartNum);
-		System.out.println(where);
 		
 		request.setAttribute("page_count", new avListPage(pageStartNum, where));
 	}

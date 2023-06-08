@@ -101,7 +101,6 @@ public class TUser_UsListAjax implements TAction {
                     		+ and + group + order;
         }
         
-        System.out.println(where);
 		request.setAttribute("ticket_type", ticket_type);
 		request.setAttribute("start_point", start_point);
 		request.setAttribute("end_point", end_point);

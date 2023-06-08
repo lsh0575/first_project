@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<style>
-.navbar {
-	background-color: transparent;
-}
-</style>
+
 <div id="airMain2"
 	class="container-field panel panel-default text-center">
 	<div class="row">

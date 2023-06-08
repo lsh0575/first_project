@@ -185,7 +185,7 @@ select:focus {
 	margin-top: 0.8%;
 }
 
-/* AIR-항공 및 예약 공통 */
+						/* AIR-항공 및 예약 공통 */
 #airMain { /* 어드민_전체 공통 페이지 */
 	border: none;
 	border-radius: 0;
@@ -276,7 +276,7 @@ select:focus {
 	width: 12%;
 	height: 52px;
 	float: left;
-	margin-left: 15px;
+	margin-left: 1%;
 	font-size: 16px;
 	padding-left: 1%;
 	font-weight: bolder;
@@ -635,6 +635,8 @@ td.airtdg {
 .airgg {
 	width:  90%;
 }
+
+
 /*************************************************************/
 @keyframes slide {
     0% {

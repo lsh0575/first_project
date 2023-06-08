@@ -30,13 +30,6 @@ public class TAdmin_ReList implements TAction {
 				    + " in ('" + ticket_type + "') and "
 				    + "reservation_date between '" + start_date + "' and '" + end_date + "'";
 		}
-		System.out.println(reservation_name);
-		System.out.println(reservation_number);
-		System.out.println(ticket_type);
-		System.out.println(start_date);
-		System.out.println(end_date);
-		System.out.println(pageStartNum);
-		System.out.println(where);
 		request.setAttribute("page_count", new reListPage(pageStartNum, where));
 	}
 }

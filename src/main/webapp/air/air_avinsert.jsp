@@ -8,7 +8,7 @@
 <!---------- HEADER ---------->
 
 <!---------- START CONTAINER ---------->
-<div id="airMain" class="container-field">
+<div id="airMain" class="body-top">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="airP1">
@@ -87,6 +87,7 @@
 						<a href="javascript:history.go(-1)"
 							class="btn btn-default btn-block" title="목록보기">목록보기</a>
 					</div>
+				</form>
 			</div>
 		</div>
 	</div>

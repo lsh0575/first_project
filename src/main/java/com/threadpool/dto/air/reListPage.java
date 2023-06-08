@@ -2,9 +2,7 @@ package com.threadpool.dto.air;
 
 import java.util.List;
 
-import com.threadpool.dao.air.AdminAviationDao;
 import com.threadpool.dao.air.AdminReservationDao;
-import com.threadpool.dao.air.UserAviationDao;
 
 public class reListPage {
 	private int listTotal;			//전체 갯수
