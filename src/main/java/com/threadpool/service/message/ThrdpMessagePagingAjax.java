@@ -29,6 +29,5 @@ public class ThrdpMessagePagingAjax implements ThrdpMessageAction{
 		
 		Gson gson = new Gson();
 		response.getWriter().println(gson.toJson(paging));
-		System.out.println(gson.toJson(paging));
 	}
 }
