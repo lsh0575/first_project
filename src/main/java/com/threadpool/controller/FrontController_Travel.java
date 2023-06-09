@@ -77,22 +77,21 @@ public class FrontController_Travel extends HttpServlet {
 			service.exec(request, response);
 			request.getRequestDispatcher("/travel/detail.jsp").forward(request, response);
 		} 
-		/////////////////
-		// 확인 및 수정 필요// 
-		/////////////////
 		else if (path.equals("/edit_view.travel")) {
 			service = new TEditView();
-			if (request.getSession().getAttribute("account") == null) {
-				out.println("<script>alert('로그인이 필요합니다!'); history.go(-1); </script>");
-			} else {
-				AccountDto dto = (AccountDto) request.getSession().getAttribute("account");
-				if (dto.getRole_id() == 1 || dto.getRole_id() == 4) {
-					request.getRequestDispatcher("/edit.travel").forward(request,response);
-				} else {
-					service.exec(request, response);
-					request.getRequestDispatcher("/travel/edit.jsp").forward(request, response);
-				}
-			}
+			service.exec(request, response);
+			request.getRequestDispatcher("/travel/edit.jsp").forward(request, response);
+//			if (request.getSession().getAttribute("account") == null) {
+//				out.println("<script>alert('로그인이 필요합니다!'); history.go(-1); </script>");
+//			} else {
+//				AccountDto dto = (AccountDto) request.getSession().getAttribute("account");
+//				if (dto.getRole_id() == 1 || dto.getRole_id() == 4) {
+//					request.getRequestDispatcher("/edit.travel").forward(request,response);
+//				} else {
+//					service.exec(request, response);
+//					request.getRequestDispatcher("/travel/edit.jsp").forward(request, response);
+//				}
+//			}
 		} 
 		else if (path.equals("/edit.travel")) {
 			service = new TEdit();

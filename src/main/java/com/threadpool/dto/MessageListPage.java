@@ -23,9 +23,9 @@ public class MessageListPage {
 	public MessageListPage(int pageStartNum,AccountDto dto) {
 		MessageDao dao= new MessageDao();
 		listTotal=dao.listCount(dto);
-		onePageListCount=5;
+		onePageListCount=10;
 		pageCount=(int)Math.ceil(listTotal/(double)onePageListCount);
-		pagesLimit=2;
+		pagesLimit=10;
 		currentPages=(int)Math.floor(pageStartNum/(double)onePageListCount)+1;
 		pagesStart=((currentPages-1)/pagesLimit)*pagesLimit+1;
 		pagesEnd=(pageCount>pagesStart+pagesLimit-1)?

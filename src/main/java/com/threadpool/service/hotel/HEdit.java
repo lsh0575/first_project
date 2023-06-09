@@ -29,7 +29,8 @@ public class HEdit implements HotelService {
 		HotelDtoImg dtoi = new HotelDtoImg();
 		
 		// 경로 설정
-		String path = "/hotel/upload";
+		String path = "/upload/hotel/";
+		path = request.getServletContext().getRealPath(path);
 		
 		
 		try {

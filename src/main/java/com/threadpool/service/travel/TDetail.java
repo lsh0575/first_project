@@ -53,7 +53,6 @@ public class TDetail implements TravelService{
 		            }
 		        } catch (NumberFormatException e) { e.printStackTrace(); }
 		    } else {
-		    	// 원래 ajax 로 해서 button 으로 만들었었는데 하다가 실패 했다 ㅋㅋㅋㅋ
 		        out.println("<script>alert('" + msg + "'); history.go(-1);</script>");
 		    }
 		} else if (tname != null && !"".equals(tname)) {

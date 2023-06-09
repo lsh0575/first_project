@@ -9,7 +9,7 @@
 	}
 </style>
 	<%@include file="./air/air_main.jsp" %>
-	<%@include file="./travel/main.jsp" %>
 	<%@include file="./hotel/user_view.jsp"%>
+	<%@include file="./travel/main.jsp" %>
 	
 <%@include file = "inc/footer.jsp" %>

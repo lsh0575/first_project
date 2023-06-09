@@ -4,6 +4,12 @@
 <%@ include file="../inc/header.jsp"%>
 
 <style>
+.table {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .imgbox img {
 	width: 800px;
 	height: 400px;

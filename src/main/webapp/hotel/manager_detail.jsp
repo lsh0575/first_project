@@ -35,7 +35,7 @@
 					<c:forEach var="imgs" items="${imglist}" varStatus="status">
 						<div
 							class="hotelimg item <c:if test="${status.first}"> active </c:if> ">
-							<img src="${pageContext.request.contextPath}/upload/hotel${imgs}" alt="${dto.hprod.hcontent}"
+							<img src="${pageContext.request.contextPath}/upload/hotel/${imgs}" alt="${dto.hprod.hcontent}"
 								class="hotelimg">
 							<div class="carousel-caption">
 							</div>

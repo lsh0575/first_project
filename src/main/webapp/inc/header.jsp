@@ -40,8 +40,8 @@
 											<%-- 일반사용자 메뉴 --%>
 											<c:when test="${sessionScope.account.role_id eq 0}">
 												<li><a href="${pageContext.request.contextPath}/air_mypage.air">항공예약조회</a></li>
-												<li><a href="#">호텔예약조회</a></li>
-												<li><a href="#">마음에 든 여행지</a></li>
+												<li><a href="${pageContext.request.contextPath}/user_reservelist.hotel">호텔예약조회</a></li>
+												<li><a href="${pageContext.request.contextPath}/paging.travel">여행지 목록</a></li>
 											</c:when>
 											<%-- 일반사용자 메뉴 --%>
 											<%-- 관리자 --%>
